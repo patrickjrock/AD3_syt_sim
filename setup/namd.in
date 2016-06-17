@@ -97,8 +97,8 @@ constraintScaling   1.0
 accelMD             on
 accelMDdihe         on
 accelMDE          2900
-accelMDalpha       100
-accelMDdual         on
+accelMDalpha       200
+accelMDdual        off
 accelMDTE       -60000 
 accelMDTalpha     4560
 accelMDOutFreq    1000
