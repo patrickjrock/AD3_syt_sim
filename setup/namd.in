@@ -18,8 +18,11 @@ parameters          ParameterFiles/par_all36_lipid.prm
 parameters          ParameterFiles/toppar_all36_prot_na_combined.str 
 
 # output
-set output              c2a_wt_aMD
+set output              out/c2a_wt
+set restart             restart/c2a_wt
 outputname              $output
+restartname		$restart
+
 dcdfile                 ${output}.dcd
 xstFile                 ${output}.xst
 dcdfreq                 25000
