@@ -53,6 +53,12 @@ p <- plot_grid(p1, NULL, p2, p4, p3, p5, labels=c('A', 'B', 'C', 'D', 'E', 'F'),
 show(p)
 ```
 
+## Webplot and alignment
+The alignment of synaptotagmin-1 through synaptotagmin-17 was computed with mafft. A python script `cut.py` was used to cut the alignment down to the region in which the AD3 mutation lies. The regions in the alignemt are location `352-357` in C2A and `510-516` in C2B.
+
+
+
+
 ## References
 1. [Accelerated dynamics](http://www.ks.uiuc.edu/Research/namd/2.9/ug/node63.html)
 
