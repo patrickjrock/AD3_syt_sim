@@ -2,7 +2,7 @@
 title: "AD3 Synaptotagmin"
 author: "Patrick Rock"
 date: "June 17, 2016"
-output: html_document
+output: github_document
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
