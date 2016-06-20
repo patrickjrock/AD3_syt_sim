@@ -34,8 +34,31 @@
 <p>Patrick Rock
 June 17, 2016</p>
 
-<h2>
-<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
+<ul>
+<li>  <a href="#introduction">Introduction</a>
+
+<ul>
+<li>  <a href="#synaptotagmin-summary">Synaptotagmin summary</a>
+</li>
+<li>  <a href="#accelerated-dynamics-summary">Accelerated dynamics summary</a>
+</li>
+</ul>
+</li>
+<li>  <a href="#methods">Methods</a>
+
+<ul>
+<li>  <a href="#beta-sheet-stability">Beta sheet stability</a>
+</li>
+<li>  <a href="#webplot-and-alignment">Webplot and alignment</a>
+</li>
+</ul>
+</li>
+<li>  <a href="#links">Links</a>
+</li>
+</ul>
+
+<h1>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h1>
 
 <h3>
 <a id="synaptotagmin-summary" class="anchor" href="#synaptotagmin-summary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synaptotagmin summary</h3>
@@ -47,11 +70,11 @@ June 17, 2016</p>
 
 <p>Computational methods, and accelerated molecular dynamics simulations in particular, are able to model the behavior of proteins with less computational cost than unaccelerated dynamics. Accelerated dynamics reduce the simulation time by sampling the proteins configuration space more broadly. The accelerated model removes barriers in the protein's energy landscape by reducing the depth of local energy minima below a certain threshold, resulting in enhanced sampling. In this study, we have used accelerated molecular dynamics to simulate the effect of the mutations 180Y to 180F and 180Y to 180N on the stability of synaptotagmin C2A on the timescale of 100 nanoseconds, and also simulated the wild type (PDB 4wee) for comparison.</p>
 
-<h2>
-<a id="methods" class="anchor" href="#methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h2>
+<h1>
+<a id="methods" class="anchor" href="#methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h1>
 
-<h3>
-<a id="beta-sheet-stability" class="anchor" href="#beta-sheet-stability" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Beta sheet stability</h3>
+<h2>
+<a id="beta-sheet-stability" class="anchor" href="#beta-sheet-stability" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Beta sheet stability</h2>
 
 <p>For these runs we tested the stability of C2A with several alpha and Talpha values under normal and dual acceleration.The hydrogen bonds formed between beta sheets were recorded at each frame and plotted into histograms. The protein was melting with <code>accelMDalpha 100</code>, <code>accelMDTalpha 4560</code>, and <code>accelMDdual on</code>; however, the data for this still needs to be analyzed.</p>
 
@@ -67,11 +90,17 @@ hbonds -sel1 $sel1 -writefile yes
 
 <p>The alignment of synaptotagmin-1 through synaptotagmin-17 was computed with mafft. A python script <code>cut.py</code> was used to cut the alignment down to the region in which the AD3 mutation lies. The regions in the alignemt are location <code>352-357</code> in C2A and <code>510-516</code> in C2B.</p>
 
-<h2>
-<a id="references" class="anchor" href="#references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References</h2>
+<p><img src="README_files/C2A_cut.png" alt=""> <img src="README_files/C2B_cut.png" alt=""></p>
+
+<h1>
+<a id="links" class="anchor" href="#links" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Links</h1>
 
 <ol>
 <li> <a href="http://www.ks.uiuc.edu/Research/namd/2.9/ug/node63.html">Accelerated dynamics</a>
+</li>
+<li> <a href="http://thegrantlab.org/bio3d/index.php">Bio3D</a>
+</li>
+<li> <a href="http://www.mdanalysis.org/">MDAnalysis</a>
 </li>
 </ol>
       </section>
