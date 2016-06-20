@@ -68,6 +68,7 @@ makeplot <- function(data, color, title){
   geom_smooth() +
   geom_point(alpha=0.1) +
   xlim(0, 300) +
+  ylim(0,20) + 
   theme_classic() +
   ggtitle(title) +
   labs(x="Frame", y="Bonds")
