@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>AD3 Synaptotagmin by prockresearch</title>
+    <title>Synaptotagmin Simulation by prockresearch</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
@@ -15,7 +15,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>AD3 Synaptotagmin</h1>
+        <h1>Synaptotagmin Simulation</h1>
         <p>Simulation of the AD3 mutation in synaptotagmin C2A</p>
 
         <p class="view"><a href="https://github.com/prockresearch/AD3_syt_sim">View the Project on GitHub <small>prockresearch/AD3_syt_sim</small></a></p>
@@ -28,16 +28,11 @@
         </ul>
       </header>
       <section>
-        <hr>
+        <h1>
+<a id="ad3-synaptotagmin" class="anchor" href="#ad3-synaptotagmin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AD3 Synaptotagmin</h1>
 
-<p>title: "AD3 Synaptotagmin"
-author: "Patrick Rock"
-date: "June 17, 2016"</p>
-
-<h2>
-<a id="output-html_document" class="anchor" href="#output-html_document" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>output: html_document</h2>
-
-<div class="highlight highlight-source-r"><pre><span class="pl-e">knitr</span><span class="pl-k">::</span><span class="pl-smi">opts_chunk</span><span class="pl-k">$</span>set(<span class="pl-v">echo</span> <span class="pl-k">=</span> <span class="pl-c1">TRUE</span>)</pre></div>
+<p>Patrick Rock
+June 17, 2016</p>
 
 <h2>
 <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
@@ -50,7 +45,7 @@ date: "June 17, 2016"</p>
 <h3>
 <a id="accelerated-dynamics-summary" class="anchor" href="#accelerated-dynamics-summary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Accelerated dynamics summary</h3>
 
-<p>Computational methods, and accelerated molecular dynamics simulations in particular, are able to model the behavior of proteins with less computational cost than unaccelerated dynamics. Accelerated dynamics reduce the simulation time by sampling the proteins configuration space more broadly. The accelerated model removes barriers in the protein's energy landscape by reducing the depth of local energy minima below a certain threshold, resulting in enhanced sampling.  In this study, we have used accelerated molecular dynamics to simulate the effect of the mutations 180Y to 180F and 180Y to 180N on the stability of synaptotagmin C2A on the timescale of 100 nanoseconds, and also simulated the wild type (PDB 4wee) for comparison.</p>
+<p>Computational methods, and accelerated molecular dynamics simulations in particular, are able to model the behavior of proteins with less computational cost than unaccelerated dynamics. Accelerated dynamics reduce the simulation time by sampling the proteins configuration space more broadly. The accelerated model removes barriers in the protein's energy landscape by reducing the depth of local energy minima below a certain threshold, resulting in enhanced sampling. In this study, we have used accelerated molecular dynamics to simulate the effect of the mutations 180Y to 180F and 180Y to 180N on the stability of synaptotagmin C2A on the timescale of 100 nanoseconds, and also simulated the wild type (PDB 4wee) for comparison.</p>
 
 <h2>
 <a id="methods" class="anchor" href="#methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h2>
@@ -58,39 +53,14 @@ date: "June 17, 2016"</p>
 <h3>
 <a id="beta-sheet-stability" class="anchor" href="#beta-sheet-stability" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Beta sheet stability</h3>
 
-<p>For these runs we tested the stability of C2A with several alpha and Talpha values under normal and dual
-acceleration.The hydrogen bonds formed between beta sheets were recorded at each frame and plotted into histograms. The protein was melting with <code>accelMDalpha 100</code>, <code>accelMDTalpha 4560</code>, and <code>accelMDdual on</code>; however, the data for this still needs to be analyzed.</p>
+<p>For these runs we tested the stability of C2A with several alpha and Talpha values under normal and dual acceleration.The hydrogen bonds formed between beta sheets were recorded at each frame and plotted into histograms. The protein was melting with <code>accelMDalpha 100</code>, <code>accelMDTalpha 4560</code>, and <code>accelMDdual on</code>; however, the data for this still needs to be analyzed.</p>
 
 <pre><code># select the beta sheets and count their hydrogen bonds
 set sel1 [atomselect top "(resid 144 to 152 or resid 156 to 166 or resid 178 to 186 or resid 207 to 213 or resid 223 to 231 or resid 237 to 246 or resid 256 to 261) and protein and backbone"]
 hbonds -sel1 $sel1 -writefile yes 
 </code></pre>
 
-<div class="highlight highlight-source-r"><pre>
-<span class="pl-c">#first arg is hbond input, second file is graph output name</span>
-library(<span class="pl-smi">ggplot2</span>)
-library(<span class="pl-smi">cowplot</span>)
-
-<span class="pl-en">makeplot</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">data</span>, <span class="pl-smi">color</span>, <span class="pl-smi">title</span>){
-  <span class="pl-smi">hbonds</span> <span class="pl-k">&lt;-</span> read.table(<span class="pl-smi">data</span>, <span class="pl-v">quote</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\"</span><span class="pl-pds">"</span></span>, <span class="pl-v">comment.char</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>)
-  <span class="pl-smi">plot</span> <span class="pl-k">&lt;-</span> ggplot(<span class="pl-smi">hbonds</span>, aes(<span class="pl-v">x</span><span class="pl-k">=</span><span class="pl-smi">V2</span>)) <span class="pl-k">+</span>
-  geom_histogram(aes(<span class="pl-v">y</span> <span class="pl-k">=</span> ..<span class="pl-smi">density</span>..), <span class="pl-v">binwidth</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>, <span class="pl-v">alpha</span> <span class="pl-k">=</span> <span class="pl-c1">0.35</span>) <span class="pl-k">+</span>
-  geom_density(<span class="pl-v">alpha</span><span class="pl-k">=</span>.<span class="pl-c1">2</span>, <span class="pl-v">fill</span><span class="pl-k">=</span><span class="pl-smi">color</span>) <span class="pl-k">+</span>
-  xlim(<span class="pl-c1">0</span>, <span class="pl-c1">25</span>) <span class="pl-k">+</span>
-  theme_classic() <span class="pl-k">+</span>
-  ggtitle(<span class="pl-smi">title</span>) <span class="pl-k">+</span>
-  labs(<span class="pl-v">x</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>Hydrogen Bonds<span class="pl-pds">"</span></span>, <span class="pl-v">y</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>Frequency<span class="pl-pds">"</span></span>)
-  <span class="pl-k">return</span>(<span class="pl-smi">plot</span>)
-}
-
-<span class="pl-smi">p1</span> <span class="pl-k">&lt;-</span> makeplot(<span class="pl-s"><span class="pl-pds">"</span>/home/prock/Desktop/AD3_syt_sim/hbonds/hbonds_1.dat<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>red<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>alpha=100, dual=off<span class="pl-pds">"</span></span>)
-<span class="pl-smi">p2</span> <span class="pl-k">&lt;-</span> makeplot(<span class="pl-s"><span class="pl-pds">"</span>/home/prock/Desktop/AD3_syt_sim/hbonds/hbonds_2.dat<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>blue<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>alpha=150, dual=off<span class="pl-pds">"</span></span>)
-<span class="pl-smi">p3</span> <span class="pl-k">&lt;-</span> makeplot(<span class="pl-s"><span class="pl-pds">"</span>/home/prock/Desktop/AD3_syt_sim/hbonds/hbonds_3.dat<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>green<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>alpha=200, dual=off<span class="pl-pds">"</span></span>)
-<span class="pl-smi">p4</span> <span class="pl-k">&lt;-</span> makeplot(<span class="pl-s"><span class="pl-pds">"</span>/home/prock/Desktop/AD3_syt_sim/hbonds/hbonds_4.dat<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>yellow<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>alpha=150, dual=on<span class="pl-pds">"</span></span>)
-<span class="pl-smi">p5</span> <span class="pl-k">&lt;-</span> makeplot(<span class="pl-s"><span class="pl-pds">"</span>/home/prock/Desktop/AD3_syt_sim/hbonds/hbonds_5.dat<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>purple<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>alpha=200, dual=on<span class="pl-pds">"</span></span>)
-
-<span class="pl-smi">p</span> <span class="pl-k">&lt;-</span> plot_grid(<span class="pl-smi">p1</span>, <span class="pl-c1">NULL</span>, <span class="pl-smi">p2</span>, <span class="pl-smi">p4</span>, <span class="pl-smi">p3</span>, <span class="pl-smi">p5</span>, <span class="pl-v">labels</span><span class="pl-k">=</span>c(<span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>B<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>D<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>E<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>F<span class="pl-pds">'</span></span>), <span class="pl-v">ncol</span> <span class="pl-k">=</span> <span class="pl-c1">2</span>)
-show(<span class="pl-smi">p</span>)</pre></div>
+<p><img src="README_files/figure-markdown_github/unnamed-chunk-1-1.png" alt=""></p>
 
 <h2>
 <a id="webplot-and-alignment" class="anchor" href="#webplot-and-alignment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Webplot and alignment</h2>
@@ -101,7 +71,8 @@ show(<span class="pl-smi">p</span>)</pre></div>
 <a id="references" class="anchor" href="#references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References</h2>
 
 <ol>
-<li><a href="http://www.ks.uiuc.edu/Research/namd/2.9/ug/node63.html">Accelerated dynamics</a></li>
+<li> <a href="http://www.ks.uiuc.edu/Research/namd/2.9/ug/node63.html">Accelerated dynamics</a>
+</li>
 </ol>
       </section>
       <footer>
