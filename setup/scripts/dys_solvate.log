@@ -1,0 +1,1 @@
+Running solvate with arguments: dys_autopsf.psf dys_autopsf.pdb -o dys_solvate -s WT -b 2.4 -x 10 -y 10 -z 10 +x 10 +y 10 +z 10
