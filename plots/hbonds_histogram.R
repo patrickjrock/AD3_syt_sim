@@ -16,11 +16,11 @@ makeplot <- function(data, color, title){
   return(plot)
 }
 
-p1 <- makeplot("hbonds_1.dat", "red", "alpha=100, dual=off")
-p2 <- makeplot("hbonds_2.dat", "blue", "alpha=150, dual=off")
-p3 <- makeplot("hbonds_3.dat", "green", "alpha=200, dual=off")
-p4 <- makeplot("hbonds_4.dat", "yellow", "alpha=150, dual=on")
-p5 <- makeplot("hbonds_5.dat", "purple", "alpha=200, dual=on")
+p1 <- makeplot("hbonds/hbonds_1.dat", "red", "alpha=100, dual=off")
+p2 <- makeplot("hbonds/hbonds_2.dat", "blue", "alpha=150, dual=off")
+p3 <- makeplot("hbonds/hbonds_3.dat", "green", "alpha=200, dual=off")
+p4 <- makeplot("hbonds/hbonds_4.dat", "yellow", "alpha=150, dual=on")
+p5 <- makeplot("hbonds/hbonds_5.dat", "purple", "alpha=200, dual=on")
 
 p <- plot_grid(p1, NULL, p2, p4, p3, p5, labels=c('A', 'B', 'C', 'D', 'E', 'F'), ncol = 2)
 
