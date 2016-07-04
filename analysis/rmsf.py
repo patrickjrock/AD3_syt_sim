@@ -9,7 +9,7 @@ from MDAnalysis.tests.datafiles import PSF, DCD, PDB_small
 import sys
 from scipy.spatial import ConvexHull
 import os
-from analysis import Analysis
+from base import Analysis
 import time
 start_time = time.time()
 
@@ -33,5 +33,3 @@ class Rmsf_ana(Analysis):
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2])
 
-r = Rmsf_ana('/home/prock/Research/namd/testdata', '/home/prock/Research/namd/structures')
-r.prun()

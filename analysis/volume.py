@@ -3,9 +3,7 @@ import MDAnalysis.analysis.distances
 import sys
 from scipy.spatial import ConvexHull
 import os
-from analysis import Analysis
-import time
-start_time = time.time()
+from base import Analysis
 
 class Volume(Analysis):
   def metric(self, psf, dcd):
@@ -30,9 +28,3 @@ class Volume(Analysis):
     print ('frame volume label')
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2])
-
-v = Volume('/home/prock/Research/namd/data', '/home/prock/Research/namd/structures')
-v.prun(16)
-
-print("--- %s seconds ---" % (time.time() - start_time))
-

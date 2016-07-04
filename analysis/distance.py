@@ -1,9 +1,13 @@
+"""
+Author: Patrick Rock 
+Date: July 4th 2016
+"""
+
 import MDAnalysis
 import MDAnalysis.analysis.distances
 import sys
 import os 
-from analysis import Analysis
-
+from base import Analysis
 
 class Distance(Analysis):
   def metric(self, psf, dcd):
@@ -20,12 +24,6 @@ class Distance(Analysis):
     return data  
 
   def write(self, data, filename="out.data"):
-    #f = open(filename, "w")
     print('frame distance label')
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2])
-    #f.close()
-
-
-d = Distance('/home/prock/Research/namd/data', '/home/prock/Research/namd/structures')
-d.prun(16)
