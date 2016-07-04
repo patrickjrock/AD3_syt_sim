@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Summary
-
+Synaptotagmin is a protein involved with the fusion of synaptic vessicles with the outer membrane. Mutations in a highly conserved sequence within the C2A and C2B domains are fatal in drosophila unless the calcium concentration is dramatically increased. To investigate the mechanism by which these mutations disrupt the function of synaptotagmin, we ran accelerated molecular dynamics simulations on the isolated C2A and C2B domains. We assesed the stability of the Calcium binding pocket formed by loops 1 and 3 by measuring the volume of the pocket, the secondary structure of the loops, and principle component analysis. 
 
 ## Introduction
 ### Synaptotagmin 
