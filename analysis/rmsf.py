@@ -1,5 +1,9 @@
-import MDAnalysis.analysis.distances
+"""
+Author: Patrick Rock
+Date: July 5th, 2016
+"""
 
+import MDAnalysis.analysis.distances
 from MDAnalysis import *
 from MDAnalysis.analysis.align import *
 from MDAnalysis.analysis.rms import rmsd
@@ -33,3 +37,5 @@ class Rmsf_ana(Analysis):
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2])
 
+r = Rmsf_ana()
+r.prun()

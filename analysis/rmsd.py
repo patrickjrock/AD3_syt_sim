@@ -1,10 +1,13 @@
-import MDAnalysis.analysis.distances
+"""
+Author: Patrick Rock
+Date: July 5th, 2016
+"""
 
+import MDAnalysis.analysis.distances
 from MDAnalysis import *
 from MDAnalysis.analysis.align import *
 from MDAnalysis.analysis.rms import rmsd
 from MDAnalysis.tests.datafiles import PSF, DCD, PDB_small
-
 
 import sys
 from scipy.spatial import ConvexHull
@@ -34,3 +37,5 @@ class Rmsd_ana(Analysis):
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2])
 
+r = Rmsd_ana()
+r.prun()

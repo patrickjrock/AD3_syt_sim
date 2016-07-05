@@ -3,6 +3,7 @@
 *.pyc
 *.data
 *.dat
+*.out
 data/*
 .Rhistory
 notes.txt

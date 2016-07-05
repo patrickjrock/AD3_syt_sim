@@ -41,5 +41,5 @@ class Phipsi(Analysis):
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + str(row[2]) + ' ' + str(self.resid) + ' ' + row[3])
 
-p = Phipsi(base.DCD_DIRECTORY, base.PSF_DIRECTORY, 173)
+p = Phipsi(base.DCD_DIRECTORY, base.PSF_DIRECTORY, 33)
 p.prun()

@@ -57,8 +57,18 @@ The alignment of synaptotagmin-1 through synaptotagmin-17 was computed with maff
 ### Principle component analysis
 
 ### Distance analysis
+In an attempt to measure the stability of loop-3, we computed the distance between the apical c alphas of loop 1 and loop 3. For C2A we selected residues 173 and 276, and for C2B residues 305 and 364. The script that computes the distance analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/distance.py)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+source("./plots/distance_density.R")
+```
 
 ### Volume analysis
+The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each loop for a total of 6. The volume of the pocket was defined as the convex hull of these 6 c alphas. The script that computes the volume analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/volume.py)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+source("./plots/volume_density.R")
+```
 
 ### RMSD and RMSF
 
@@ -71,3 +81,4 @@ The alignment of synaptotagmin-1 through synaptotagmin-17 was computed with maff
 4. [Structure of human synaptotagmin 1 C2AB in the absence of Ca2+ reveals a novel domain association.](http://www.ncbi.nlm.nih.gov/pubmed/17956130)
 5. [Molecular dynamics study of the opening mechanism for DNA polymerase I.](http://www.ncbi.nlm.nih.gov/pubmed/25474643)
 6. [The effect on synaptic physiology of synaptotagmin mutations in Drosophila.](http://www.ncbi.nlm.nih.gov/pubmed/7909234)
+7. [ggplot](http://ggplot2.org/)
