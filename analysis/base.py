@@ -3,7 +3,7 @@ This module contains the base Analysis class that all analysis modules inherit f
 Author: Patrick Rock
 Date: July 4th, 2016
 """
-
+import MDAnalysis
 import os
 from os import listdir
 from multiprocessing.pool import Pool
@@ -11,6 +11,10 @@ import copy_reg
 import types
 import time
 
+C2A_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a'
+C2B_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2b'
+DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds'
+PSF_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/psf'
 
 def _pickle_method(m):
   """ Not sure what this does exactly but its needed for the thread pool
@@ -25,12 +29,12 @@ def _pickle_method(m):
 copy_reg.pickle(types.MethodType, _pickle_method)
 
 
-class Analysis:
+class Analysis(object):
   """ abstract the data-managment and parallelism from analysis
       run on all pairs of dcd and psf files in directory
   """
 
-  def __init__(self, dcdpath='/home/prock/Research/namd/data', psfpath='/home/prock/Research/namd/structures'):
+  def __init__(self, dcdpath=DCD_DIRECTORY, psfpath=PSF_DIRECTORY):
     self.d = dcdpath
     self.p = psfpath
 
@@ -69,13 +73,13 @@ class Analysis:
     procs = []
 
     for dcd in dcds:
-        dcdpath = self.d + "/" + dcd
-        procs.append(pool.apply_async(self.metric, (self.dcdtopsf(dcd), dcdpath)))
+      dcdpath = self.d + "/" + dcd
+      procs.append(pool.apply_async(self.metric, (self.dcdtopsf(dcd), dcdpath)))
     pool.close()
     pool.join()        
     
     for proc in procs:
-        data.extend(proc.get())
+      data.extend(proc.get())
     self.write(data)
    
 #a = Analysis('/home/prock/Research/namd/data', '~/Research/namd/structures')

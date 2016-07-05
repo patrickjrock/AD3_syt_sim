@@ -1,5 +1,8 @@
 *.dcd
 *.html
 *.pyc
+*.data
+*.dat
+data/*
 .Rhistory
 notes.txt

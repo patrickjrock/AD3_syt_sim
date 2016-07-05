@@ -1,5 +1,11 @@
+"""
+Author: Patrick Rock
+Date: July 5th, 2016
+"""
+
 import MDAnalysis
 from MDAnalysis.core.topologyobjects import Dihedral
+import base
 from base import Analysis
 import os
 
@@ -35,3 +41,5 @@ class Phipsi(Analysis):
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + str(row[2]) + ' ' + str(self.resid) + ' ' + row[3])
 
+p = Phipsi(base.DCD_DIRECTORY, base.PSF_DIRECTORY, 173)
+p.prun()
