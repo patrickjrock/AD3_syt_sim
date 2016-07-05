@@ -42,12 +42,13 @@ class Volume(Analysis):
       for res in s:
         points.append(u.select_atoms("resid " + str(res) + " and name CA")[0].position)
       hull = ConvexHull(points)
-      row = [i, hull.volume, os.path.basename(dcd)[:-4]]
+      name = os.path.basename(dcd)[:-4].split('_')
+      row = [i, hull.volume, name[0], name[1], name[2]]
       data.append(row)
     return data
 
   def write(self, data, filename="out.data"):
-    print ('frame volume label')
+    print ('frame volume c2 mutant run')
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2])
 

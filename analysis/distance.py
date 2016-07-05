@@ -35,12 +35,13 @@ class Distance(Analysis):
       loop3 = u.select_atoms(s[0])
       loop1 = u.select_atoms(s[1])
       d = MDAnalysis.analysis.distances.dist(loop1, loop3)
-      row = [i, d[2][0], os.path.basename(dcd)[:-4]]  # row format is [index, distance, run label]
+      name = os.path.basename(dcd)[:-4].split('_')
+      row = [i, d[2][0], name[0], name[1], name[2]]  # row format is [index, distance, run label]
       data.append(row)
     return data  
 
   def write(self, data, filename="out.data"):
-    print('frame distance label')
+    print('frame distance c2 mutant run')
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2])
 
