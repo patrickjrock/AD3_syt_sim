@@ -73,6 +73,8 @@ The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each
 
 ![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
+![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)
+
 ### RMSD and RMSF
 
 ### Ramachandran

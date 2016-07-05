@@ -70,6 +70,10 @@ The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each
 source("./plots/volume_density.R")
 ```
 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+source("./plots/c2vrun.R")
+```
+
 ### RMSD and RMSF
 
 ### Ramachandran

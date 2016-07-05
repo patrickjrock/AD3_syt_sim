@@ -4,7 +4,6 @@
 library("ggplot2", lib.loc="~/R/x86_64-pc-linux-gnu-library/3.2")
 library(cowplot)
 
-distance <- read.csv("~/Desktop/AD3_syt_sim/data/volume.data", sep="")
-sub <- subset(distance, label=="c2a_wt_1" | label=="c2a_Y180F_1" | label=="c2a_Y180N_1")
-p <- ggplot(sub) + geom_density(aes(x=volume, color=label, fill=label), alpha=.3) + theme_classic() + labs(title="Approximate volume of loop1-loop3 pocket")
+volume <- read.csv("~/Desktop/AD3_syt_sim/data/volume.data", sep="")
+p <- ggplot(volume) + geom_density(aes(x=volume, color=factor(mutant), fill=factor(mutant)), alpha=.3)  + theme_classic() + facet_grid(run ~ c2)
 show(p)
