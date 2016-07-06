@@ -1,5 +1,5 @@
 mol new "/home/prock/Desktop/AD3_syt_sim/structures/psf/c2a_Y180F.psf"
-mol addfile "/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a/c2a_Y180F_1.dcd"
+mol addfile "/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a_Y180F_1.dcd"
 
 
 proc readdata {} {

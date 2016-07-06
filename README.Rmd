@@ -76,6 +76,11 @@ source("./plots/c2vrun.R")
 
 ### RMSD and RMSF
 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+source("./plots/rmsd.R")
+```
+
+
 ### Ramachandran
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 source("./plots/phipsi.R")

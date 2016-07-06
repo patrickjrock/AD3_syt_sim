@@ -34,7 +34,7 @@ class Rmsd_ana(Analysis):
     return data
 
   def write(self, data, filename="out,data"):
-    print ('frame rmsd label')
+    print ('frame rmsd c2 mutant run')
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + row[3] + ' ' + row[4])
 

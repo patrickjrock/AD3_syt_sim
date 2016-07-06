@@ -21,12 +21,9 @@ class Volume(Analysis):
       s.append(200)
       s.extend(range(230,239))
     if fname[:3] == "c2b":
-      s.append("305")
-      s.append("302")
-      s.append("308")
-      s.append("367")
-      s.append("364")
-      s.append("370")
+      s.extend(range(303,309))
+      s.append(333)
+      s.extend(range(365,371))
     return s
 
   def write_hull(self, h, ps):
@@ -72,6 +69,6 @@ class Volume(Analysis):
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + row[3] + ' ' + row[4])
 
-v = Volume(base.C2A_DIRECTORY)
-v.compute_hull("../structures/psf/c2a_Y180F.psf", "../data/dcds/c2a/c2a_Y180F_1.dcd")
-#v.prun()
+v = Volume()
+#v.compute_hull("../structures/psf/c2a_Y180F.psf", "../data/dcds/c2a_Y180F_1.dcd")
+v.prun()
