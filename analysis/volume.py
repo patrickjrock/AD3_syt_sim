@@ -32,12 +32,13 @@ class Volume(Analysis):
     return s
 
   def write_hull(self, h, ps):
+    out = ""
     for sim in h.simplices:
       points = [ps[sim[x]] for x in range(0,3)]
-      out = ""
       for p in points:
         out += str(p[0]) + ' ' + str(p[1]) + ' ' + str(p[2]) + ','
-      print out[:-1]
+      out = out[:-1] + '\n'
+    print out[:-1] + ';'
 
   def compute_hull(self, psf, dcd):
     s = self.get_selection(psf)
@@ -51,7 +52,6 @@ class Volume(Analysis):
         points.extend([atom.position for atom in u.select_atoms("resid " + str(res) + " and name CA")])
       hull = ConvexHull(points)
       self.write_hull(hull, points)
-      print 
 
   def metric(self, psf, dcd):
     s = self.get_selection(psf)

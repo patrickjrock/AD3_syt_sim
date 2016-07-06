@@ -1,13 +1,27 @@
 mol new "/home/prock/Desktop/AD3_syt_sim/structures/psf/c2a_wt.psf"
 mol addfile "/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a_wt_1.dcd"
 
-global data
 
-proc readdata{} {
-  set fp [open "/home/prock/Desktop/AD3_syt_sim/data/hull_coordinates.data" r]
+proc readdata {} {
+  set fp [open "/home/prock/Desktop/AD3_syt_sim/data/frame.data" r]
   set data [read $fp]
   close $fp
-  set data [split $data "\n\n"]
+  set data [split $data "\n"]
+  return $data
+}
+
+proc drawframe {f} {
+  foreach shape $f {
+    set points [split $shape ","]
+    set p1 [lindex $points 0]
+    set p2 [lindex $points 1]
+    set p3 [lindex $points 2]
+
+    puts "points"    
+    puts $points
+
+    draw triangle $p1 $p2 $p3
+  }
 }
 
 proc enabletrace {} {
@@ -21,7 +35,11 @@ proc disabletrace {} {
 }
 
 proc drawcounter { name element op } {
-    puts $data
+    set data [readdata]
+    set framenum [molinfo top get frame]   
+    set fdata [lindex $data framenum]
+#    puts $fdata
+
     global vmd_frame
 
     set f {}
@@ -35,5 +53,16 @@ proc drawcounter { name element op } {
     draw triangle {1 0 0} {0 1 0} {0 0 1}
 
 }
-readdata()
-enabletrace
+
+
+
+set  d [readdata]
+#set f1 [lindex $d 0]
+#puts "\n\n\n"
+#set f1 [split $f1 ","]
+#puts [lindex [lindex $f1 0] 0]
+
+drawframe $d
+
+
+#enabletrace
