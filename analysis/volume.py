@@ -31,6 +31,28 @@ class Volume(Analysis):
       s.append("370")
     return s
 
+  def write_hull(self, h, ps):
+    for sim in h.simplices:
+      points = [ps[sim[x]] for x in range(0,3)]
+      out = ""
+      for p in points:
+        out += str(p[0]) + ' ' + str(p[1]) + ' ' + str(p[2]) + ','
+      print out[:-1]
+
+  def compute_hull(self, psf, dcd):
+    s = self.get_selection(psf)
+    u = MDAnalysis.Universe(psf, dcd)
+    i = 0
+    data = []
+    for ts in u.trajectory: 
+      i = i+1
+      points = []    
+      for res in s:
+        points.extend([atom.position for atom in u.select_atoms("resid " + str(res) + " and name CA")])
+      hull = ConvexHull(points)
+      self.write_hull(hull, points)
+      print 
+
   def metric(self, psf, dcd):
     s = self.get_selection(psf)
     u = MDAnalysis.Universe(psf, dcd)
@@ -53,4 +75,4 @@ class Volume(Analysis):
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + row[3] + ' ' + row[4])
 
 v = Volume()
-v.prun()
+v.compute_hull("../structures/psf/c2a_wt.psf", "../data/dcds/c2a_wt_1.dcd")
