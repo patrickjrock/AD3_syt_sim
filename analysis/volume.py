@@ -9,6 +9,7 @@ import sys
 from scipy.spatial import ConvexHull
 import os
 from base import Analysis
+import base
 
 class Volume(Analysis):
 
@@ -16,12 +17,9 @@ class Volume(Analysis):
     fname = os.path.basename(psf)
     s = []
     if fname[:3] == "c2a":
-      s.append("234")
-      s.append("173")
-      s.append("170")
-      s.append("176")
-      s.append("236")
-      s.append("231")
+      s.extend(range(171,179))
+      s.append(200)
+      s.extend(range(230,239))
     if fname[:3] == "c2b":
       s.append("305")
       s.append("302")
@@ -74,5 +72,6 @@ class Volume(Analysis):
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + row[3] + ' ' + row[4])
 
-v = Volume()
-v.compute_hull("../structures/psf/c2a_wt.psf", "../data/dcds/c2a_wt_1.dcd")
+v = Volume(base.C2A_DIRECTORY)
+v.compute_hull("../structures/psf/c2a_Y180F.psf", "../data/dcds/c2a/c2a_Y180F_1.dcd")
+#v.prun()

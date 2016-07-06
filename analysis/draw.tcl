@@ -1,26 +1,29 @@
-mol new "/home/prock/Desktop/AD3_syt_sim/structures/psf/c2a_wt.psf"
-mol addfile "/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a_wt_1.dcd"
+mol new "/home/prock/Desktop/AD3_syt_sim/structures/psf/c2a_Y180F.psf"
+mol addfile "/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a/c2a_Y180F_1.dcd"
 
 
 proc readdata {} {
-  set fp [open "/home/prock/Desktop/AD3_syt_sim/data/frame.data" r]
+  set fp [open "/home/prock/Desktop/AD3_syt_sim/data/hull_coordinates.data" r]
   set data [read $fp]
   close $fp
-  set data [split $data "\n"]
+  set data [split $data ";"]
   return $data
 }
 
 proc drawframe {f} {
+  draw delete all
   foreach shape $f {
-    set points [split $shape ","]
-    set p1 [lindex $points 0]
-    set p2 [lindex $points 1]
-    set p3 [lindex $points 2]
+    if {$shape != {}} {
+      set points [split $shape ","]
+      set p1 [lindex $points 0]
+      set p2 [lindex $points 1]
+      set p3 [lindex $points 2]
+   
+      puts "points"    
+      puts $points
 
-    puts "points"    
-    puts $points
-
-    draw triangle $p1 $p2 $p3
+      draw triangle $p1 $p2 $p3
+    } 
   }
 }
 
@@ -34,35 +37,34 @@ proc disabletrace {} {
     trace vdelete vmd_frame([molinfo top]) w drawcounter
 }
 
+
+
+set data [readdata]
+
 proc drawcounter { name element op } {
-    set data [readdata]
+    global data
     set framenum [molinfo top get frame]   
-    set fdata [lindex $data framenum]
-#    puts $fdata
+    puts $framenum
+    set framedata [lindex $data $framenum]
+    set framedata [split $framedata "\n"]
 
-    global vmd_frame
-
-    set f {}
- 
-    draw delete all 
-    set f {}
-    lappend f 0
-    lappend f [molinfo top get frame]
-    lappend f 0
-  
-    draw triangle {1 0 0} {0 1 0} {0 0 1}
-
+    puts $framedata    
+    drawframe $framedata
 }
 
 
 
-set  d [readdata]
 #set f1 [lindex $d 0]
 #puts "\n\n\n"
 #set f1 [split $f1 ","]
 #puts [lindex [lindex $f1 0] 0]
 
-drawframe $d
+#set f1 [lindex $data 2]
+#puts "\n\n\n\n"
+#puts $f1
+
+#set f1 [split $f1 "\n"]
+#drawframe $f1
 
 
-#enabletrace
+enabletrace

@@ -28,14 +28,15 @@ class Rmsd_ana(Analysis):
     
     for n  in rmsd_out.rmsd:
       i = i+1 
-      row = [i, n[2], os.path.basename(dcd)[:-4]]  # row format is [index, distance, run label]
+      name = os.path.basename(dcd)[:-4].split('_')
+      row = [i, n[2], name[0], name[1], name[2]]  # row format is [index, distance, run label]
       data.append(row)
     return data
 
   def write(self, data, filename="out,data"):
     print ('frame rmsd label')
     for row in data:
-      print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2])
+      print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + row[3] + ' ' + row[4])
 
 r = Rmsd_ana()
 r.prun()
