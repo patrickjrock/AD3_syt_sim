@@ -1,3 +1,4 @@
+staging/*
 *.dcd
 *.html
 *.pyc

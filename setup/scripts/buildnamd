@@ -36,7 +36,7 @@ echo "----calculating center of mass"
 mv $fname dys.coor
 
 echo "----running model_setup.tcl"
-vmd -e model_setup.tcl -args $4 # atom index to restrain
+vmd -dispdev text -e model_setup.tcl -args $4 # atom index to restrain
 
 mv dys_ionized.pdb ../$pdbname
 mv dys_ionized.psf ../$psfname
