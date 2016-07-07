@@ -10,6 +10,7 @@ from multiprocessing.pool import Pool
 import copy_reg
 import types
 import time
+import sys
 
 C2A_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a'
 C2B_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2b'
@@ -48,6 +49,12 @@ class Analysis(object):
     print('frame ' + metric_name + ' c2 mutant run')
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + row[3] + ' ' + row[4]) 
+
+  def log(self, i):
+    """ write out progress for tracking pool performance """
+    if i % 100 == 0:
+      sys.stderr.write("process " + str(os.getpid()) + ": at timestep " + str(i) + "\n") 
+ 
 
   def getdcds(self):
     files = listdir(self.d)
