@@ -4,6 +4,9 @@
 *.data
 *.dat
 *.out
+*.swp
+.old/*
 data/*
 .Rhistory
+.RData
 notes.txt

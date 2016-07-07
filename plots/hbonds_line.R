@@ -12,7 +12,7 @@ makeplot <- function(data, color, title){
   xlim(0, 300) +
   theme_classic() +
   ggtitle(title) +
-  labs(x="Frame", y="Hydrogen bonds")
+  labs(x="Frame", y="H-bonds")
   return(plot)
 }
 

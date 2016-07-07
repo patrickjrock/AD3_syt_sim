@@ -65,9 +65,7 @@ class Volume(Analysis):
     return data
 
   def write(self, data, filename="out.data"):
-    print ('frame volume c2 mutant run')
-    for row in data:
-      print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + row[3] + ' ' + row[4])
+    self.base_write(data, "volume")
 
 v = Volume()
 #v.compute_hull("../structures/psf/c2a_Y180F.psf", "../data/dcds/c2a_Y180F_1.dcd")

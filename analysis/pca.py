@@ -11,6 +11,9 @@ import os
 from base import Analysis
 
 class pca(Analysis):
+  """
+  shows pca space, for each frame write out pc projections 
+  """  
 
   def metric(self, psf, dcd):
     """
@@ -30,9 +33,12 @@ class pca(Analysis):
     PCs = e_vecs[:, sort_idx]
 
     i = 0
-    for pc in PCs:
-    i = i+1
-    row = [i, 
+    for pc in variance:
+      i = i+1
+      name = os.path.basename(dcd)[:-4].split('_')
+      row = [i, pc, name[0], name[1], name[2]]
+      data.append(row)
+    return data 
 
 
   def write(self, data, filename="out.data"):

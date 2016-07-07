@@ -44,6 +44,11 @@ class Analysis(object):
   def write(self, data, filename="out.data"):
     raise NotImplementedError("write not implemented")
 
+  def base_write(self, data, metric_name):
+    print('frame ' + metric_name + ' c2 mutant run')
+    for row in data:
+      print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + row[3] + ' ' + row[4]) 
+
   def getdcds(self):
     files = listdir(self.d)
     dcdfiles = []

@@ -41,9 +41,7 @@ class Distance(Analysis):
     return data  
 
   def write(self, data, filename="out.data"):
-    print('frame distance c2 mutant run')
-    for row in data:
-      print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + row[3] + ' ' + row[4])
+    self.base_write(data, 'distance')
 
 d = Distance()
 d.prun()

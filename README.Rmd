@@ -44,7 +44,7 @@ source("./plots/hbonds_histogram.R")
 source("./plots/hbonds_line.R")
 ```
 
-### namd configuration
+### NAMD configuration
 Based on our analysis of the hydrogen bonding across different acceleration parameters, we decided to use `alpha=200` and `dual=off` in our final runs. We used our lab's crystal structure of synaptotagmin C2A and C2B to generate the mutants of interest with pymol's mutagenesis wizard. Each of the 6 resulting structures was run under different random seeds for 50,000,000 frames with a timestep of 2 femtoseconds (total of 100 ns) on lonestar 5. The pdb structures were solvated and ionized in a cube and minimized for 1000 frames. A single atom in the center of the protein was restrained to prevent drifting. 
 
 ## Methods
@@ -70,15 +70,13 @@ The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each
 source("./plots/volume_density.R")
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-source("./plots/c2vrun.R")
-```
-
 ### RMSD and RMSF
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 source("./plots/rmsd.R")
 ```
+
+### Hydrogen bonds
 
 
 ### Ramachandran

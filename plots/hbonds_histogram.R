@@ -12,7 +12,7 @@ makeplot <- function(data, color, title){
   xlim(0, 25) +
   theme_classic() +
   ggtitle(title) +
-  labs(x="Hydrogen Bonds", y="Frequency")
+  labs(x="H-bonds", y="Frequency")
   return(plot)
 }
 
