@@ -1,10 +1,15 @@
 #!/bin/bash
 # first argument is directory where to place new build
 # second argumnet is path to pdb file
+#
+# Author: Patrick Rock
+# Date: July 6th, 2016
+#
+#
 
-if [ "$#" -ne 2 ]; then
+if [ "$#" -ne 4 ]; then
   echo "Wrong number of command line arguments"
-  echo "Usage: buildnamd path/to/output path/to/pdbfile"
+  echo "Usage: buildnamd path/to/output path/to/pdbfile alpha restraint_index"
   exit
 fi
 
@@ -18,5 +23,27 @@ echo "----running setup.sh"
 ppath=$2
 s1=${ppath##\/*\/} 
 s2=${s1%.pdb}
-sh $1/scripts/setup.sh $s2
+
+######
+
+fname=$s2"_center.pdb"
+pdbname=$s2".pdb"
+psfname=$s2".psf"
+
+echo "----calculating center of mass"
+~/Research/pdbtools/pdb_centermass.py -c ./$pdbname
+
+mv $fname dys.coor
+
+echo "----running model_setup.tcl"
+vmd -e model_setup.tcl -args $4 # atom index to restrain
+
+mv dys_ionized.pdb ../$pdbname
+mv dys_ionized.psf ../$psfname
+mv restraint.pdb ../restraint.pdb
+
+echo "----generating namd file"
+python namd.py $psfname $pdbname $s2 $3
+mv namd.in ../namd.in
+
 echo "----done"

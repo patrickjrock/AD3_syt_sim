@@ -18,7 +18,7 @@ parameters          ParameterFiles/par_all36_lipid.prm
 parameters          ParameterFiles/toppar_all36_prot_na_combined.str 
 
 # output
-set output              out/{{ out_name }}
+set output              $DCD_PATH/{{ out_name }}
 set restart             restart/{{ out_name }}
 outputname              $output
 restartname		$restart
@@ -97,7 +97,7 @@ constraintScaling   1.0
 accelMD             on
 accelMDdihe         on
 accelMDE          2900
-accelMDalpha       200
+accelMDalpha       {{ alpha }}
 accelMDdual        off
 accelMDTE       -60000 
 accelMDTalpha     4560

@@ -27,8 +27,9 @@ autoionize -psf dys_solvate.psf -pdb dys_solvate.pdb -o dys_ionized -sc 0.15
 
 set mol1 [mol new dys_ionized.pdb type pdb waitfor all]
 
+set rid [lindex $argv 0]
 set all [atomselect top "all"]
-set sel [atomselect top "index 1555"]
+set sel [atomselect top "resid $rid and name CA"]
 
 $all set beta 0.0
 $sel set beta 1.0
