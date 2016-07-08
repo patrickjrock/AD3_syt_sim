@@ -14,7 +14,7 @@ import sys
 
 C2A_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a'
 C2B_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2b'
-DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds'
+DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/alpha100'
 PSF_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/psf'
 
 def _pickle_method(m):

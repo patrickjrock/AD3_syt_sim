@@ -26,8 +26,8 @@ class Sphere(Analysis):
     return s
 
   def sphere_volume(self, points):
-    # find furthest points => diameter
-    
+    """ find furthest points => diameter 
+    """ 
     m1 = -1   
     m2 = -1
     d = -1
@@ -36,7 +36,30 @@ class Sphere(Analysis):
         dist = np.linalg.norm(points[i]- points[j])
         if dist > d:
           d = dist
-    return (4/3)*math.pi*(d/2)**3 
+          m1 = i
+          m2 = j
+    vol = (4/3)*math.pi*(d/2)**3 
+    ctr = (points[m1] + points[m2])/2
+    rad = d/2
+    return (vol, ctr, rad)
+
+  def write_sphere(self, psf, dcd):
+    """ not the moset elegant way to do this, 
+        try to do this by implementing a writer
+        subclass in the future.
+    """
+    s = self.get_selection(psf)
+    u = MDAnalysis.Universe(psf, dcd)
+    i = 0
+    data = []
+    for ts in u.trajectory: 
+      self.log(i) 
+      i = i+1
+      points = []    
+      for res in s:
+        points.extend([atom.position for atom in u.select_atoms("resid " + str(res) + " and name CA")])
+      svol, ctr, rad = self.sphere_volume(points)
+      print str(rad) + ' ' + str(ctr[0]) + ' ' + str(ctr[1]) + ' ' + str(ctr[2]) 
 
   def metric(self, psf, dcd):
     s = self.get_selection(psf)
@@ -49,7 +72,7 @@ class Sphere(Analysis):
       points = []    
       for res in s:
         points.extend([atom.position for atom in u.select_atoms("resid " + str(res) + " and name CA")])
-      svol = self.sphere_volume(points)
+      svol, ctr, rad = self.sphere_volume(points)
       name = os.path.basename(dcd)[:-4].split('_')
       row = [i, svol, name[0], name[1], name[2]]
       data.append(row)
@@ -59,4 +82,5 @@ class Sphere(Analysis):
     self.base_write(data, "volume")
 
 s = Sphere()
-s.prun()
+#s.prun()
+s.write_sphere("/home/prock/Desktop/AD3_syt_sim/structures/psf/c2a_Y180F.psf", "/home/prock/Desktop/AD3_syt_sim/data/dcds/alpha200/c2a_Y180F_1.dcd")

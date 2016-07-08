@@ -1,5 +1,5 @@
 mol new "/home/prock/Desktop/AD3_syt_sim/structures/psf/c2a_Y180F.psf"
-mol addfile "/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a_Y180F_1.dcd"
+mol addfile "/home/prock/Desktop/AD3_syt_sim/data/dcds/alpha200/c2a_Y180F_1.dcd"
 
 
 proc readdata {} {
@@ -52,19 +52,7 @@ proc drawcounter { name element op } {
     drawframe $framedata
 }
 
-
-
-#set f1 [lindex $d 0]
-#puts "\n\n\n"
-#set f1 [split $f1 ","]
-#puts [lindex [lindex $f1 0] 0]
-
-#set f1 [lindex $data 2]
-#puts "\n\n\n\n"
-#puts $f1
-
-#set f1 [split $f1 "\n"]
-#drawframe $f1
-
+graphics 0 materials on
+graphics 0 material Transparent
 
 enabletrace
