@@ -6,6 +6,6 @@ library(cowplot)
 
 distance <- read.csv("~/Desktop/AD3_syt_sim/data/distance.data", sep="")
 p <- ggplot(distance) + geom_density(aes(x=distance, color=factor(mutant), fill=factor(mutant)), alpha=.3) + 
-  theme_classic() + facet_grid(run ~ c2) + ggtitle("Distance density")
+  theme_classic() + facet_grid(. ~ c2) + ggtitle("Distance density")
 show(p)
 

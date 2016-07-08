@@ -1,6 +1,6 @@
 """
 Author: Patrick Rock 
-Date: July 4th 2016
+Date: July 8th 2016
 """
 
 import MDAnalysis
@@ -12,17 +12,7 @@ from base import Analysis
 class Distance(Analysis):
 
   def get_selection(self, psf): 
-    fname = os.path.basename(psf)
-    s1 = ""
-    s2 = ""
-    if fname[:3] == "c2a":
-      s1 = "resid 234 and name CA"
-      s2 = "resid 173 and name CA"
-
-    if fname[:3] == "c2b":
-      s1 = "resid 305 and name CA" 
-      s2 = "resid 367 and name CA"
-    return (s1, s2)
+    raise NotImplementedError("run not implemented")
 
   def metric(self, psf, dcd):
     s = self.get_selection(psf)
@@ -31,6 +21,7 @@ class Distance(Analysis):
     data = []
     i = 0
     for ts in u.trajectory:
+      self.log(i)
       i = i + 1
       loop3 = u.select_atoms(s[0])
       loop1 = u.select_atoms(s[1])
@@ -42,6 +33,3 @@ class Distance(Analysis):
 
   def write(self, data, filename="out.data"):
     self.base_write(data, 'distance')
-
-d = Distance()
-d.prun()
