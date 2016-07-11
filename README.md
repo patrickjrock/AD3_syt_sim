@@ -30,23 +30,7 @@ Computational methods, and accelerated molecular dynamics simulations in particu
 Setup
 -----
 
-### Beta sheet stability
-
-For these runs we tested the stability of C2A with several alpha and Talpha values under normal and dual acceleration.The hydrogen bonds formed between beta sheets were recorded at each frame and plotted into histograms. The protein was melting with `accelMDalpha 100`, `accelMDTalpha 4560`, and `accelMDdual on`; however, the data for this still needs to be analyzed.
-
-    # select the beta sheets and count their hydrogen bonds
-    set sel1 [atomselect top "(resid 144 to 152 or resid 156 to 166 or resid 178 to 186 or resid 207 to 213 or resid      223 to 231 or resid 237 to 246 or resid 256 to 261) and protein and backbone"]
-    hbonds -sel1 $sel1 -writefile yes 
-
-#### Histogram of hydrogen bond data
-
-![](README_files/figure-markdown_github/unnamed-chunk-1-1.png)
-
-#### Hydrogen bond behavior over time
-
-![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)
-
-### namd configuration
+### NAMD configuration
 
 Based on our analysis of the hydrogen bonding across different acceleration parameters, we decided to use `alpha=200` and `dual=off` in our final runs. We used our lab's crystal structure of synaptotagmin C2A and C2B to generate the mutants of interest with pymol's mutagenesis wizard. Each of the 6 resulting structures was run under different random seeds for 50,000,000 frames with a timestep of 2 femtoseconds (total of 100 ns) on lonestar 5. The pdb structures were solvated and ionized in a cube and minimized for 1000 frames. A single atom in the center of the protein was restrained to prevent drifting.
 
@@ -61,27 +45,25 @@ The alignment of synaptotagmin-1 through synaptotagmin-17 was computed with maff
 
 ### Principle component analysis
 
+### Hydrogen bond analysis
+
+![](README_files/figure-markdown_github/unnamed-chunk-1-1.png)
+
 ### Distance analysis
 
 In an attempt to measure the stability of loop-3, we computed the distance between the apical c alphas of loop 1 and loop 3. For C2A we selected residues 173 and 276, and for C2B residues 305 and 364. The script that computes the distance analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/distance.py)
 
-![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)![](README_files/figure-markdown_github/unnamed-chunk-2-2.png)
 
 ### Volume analysis
 
 The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each loop for a total of 6. The volume of the pocket was defined as the convex hull of these 6 c alphas. The script that computes the volume analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/volume.py)
 
-![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
-
-![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)![](README_files/figure-markdown_github/unnamed-chunk-3-2.png)
 
 ### RMSD and RMSF
 
-![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)
-
-### Ramachandran
-
-![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
 Links
 -----

@@ -81,6 +81,5 @@ class Sphere(Analysis):
   def write(self, data, filename="out.data"):
     self.base_write(data, "volume")
 
-s = Sphere()
-#s.prun()
-s.write_sphere("/home/prock/Desktop/AD3_syt_sim/structures/psf/c2a_Y180F.psf", "/home/prock/Desktop/AD3_syt_sim/data/dcds/alpha200/c2a_Y180F_1.dcd")
+s = Sphere("/home/prock/Desktop/AD3_syt_sim/staging/cpy/dcds")
+s.prun()

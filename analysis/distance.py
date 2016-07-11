@@ -33,3 +33,4 @@ class Distance(Analysis):
 
   def write(self, data, filename="out.data"):
     self.base_write(data, 'distance')
+

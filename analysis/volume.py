@@ -54,6 +54,7 @@ class Volume(Analysis):
     i = 0
     data = []
     for ts in u.trajectory: 
+      self.log(i)
       i = i+1
       points = []    
       for res in s:
@@ -68,5 +69,5 @@ class Volume(Analysis):
     self.base_write(data, "volume")
 
 v = Volume()
-#v.compute_hull("../structures/psf/c2a_Y180F.psf", "../data/dcds/c2a_Y180F_1.dcd")
-v.prun()
+#v = Volume("/home/prock/Desktop/AD3_syt_sim/staging/cpy/dcds")
+v.compute_hull("../structures/psf/c2a_wt.psf", "/home/prock/Desktop/AD3_syt_sim/staging/cpy/dcds/c2a_wt_1.dcd")

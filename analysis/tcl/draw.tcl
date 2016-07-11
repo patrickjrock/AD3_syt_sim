@@ -1,9 +1,9 @@
-mol new "/home/prock/Desktop/AD3_syt_sim/structures/psf/c2a_Y180F.psf"
-mol addfile "/home/prock/Desktop/AD3_syt_sim/data/dcds/alpha200/c2a_Y180F_1.dcd"
+mol new "/home/prock/Desktop/AD3_syt_sim/structures/psf/c2a_wt.psf"
+mol addfile "/home/prock/Desktop/AD3_syt_sim/staging/cpy/dcds/c2a_wt_1.dcd"
 
 
 proc readdata {} {
-  set fp [open "/home/prock/Desktop/AD3_syt_sim/data/hull_coordinates.data" r]
+  set fp [open "/home/prock/Desktop/AD3_syt_sim/data/alphahull_wt.data" r]
   set data [read $fp]
   close $fp
   set data [split $data ";"]

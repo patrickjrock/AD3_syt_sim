@@ -38,5 +38,5 @@ class Rmsd_ana(Analysis):
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + row[3] + ' ' + row[4])
 
-r = Rmsd_ana()
+r = Rmsd_ana("/home/prock/Desktop/AD3_syt_sim/staging/cpy/dcds")
 r.prun()

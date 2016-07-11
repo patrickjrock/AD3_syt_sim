@@ -31,20 +31,24 @@ class pca(Analysis):
     sort_idx = np.argsort(e_vals)[::-1]
     variance = e_vals[sort_idx]
     PCs = e_vecs[:, sort_idx]
+    PC_projection = np.dot(x, PCs)
 
     i = 0
-    for pc in variance:
-      i = i+1
-      name = os.path.basename(dcd)[:-4].split('_')
-      row = [i, pc, name[0], name[1], name[2]]
-      data.append(row)
+    j = 0
+    for pc in PC_projection:
+      j = j+1
+      for proj in pc:
+        i = i+1
+        name = os.path.basename(dcd)[:-4].split('_')
+        row = [i, j, proj, name[0], name[1], name[2]]
+        data.append(row)
     return data 
 
 
   def write(self, data, filename="out.data"):
-    print('frame  c2 mutant run')
+    print('frame pc projection c2 mutant run')
     for row in data:
-      print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + row[3] + ' ' + row[4])
+      print(str(row[0]) + ' ' + str(row[1]) + ' ' + str(row[2]) + ' ' + row[3] + ' ' + row[4] + ' ' + row[5])
 
-d = Distance()
-d.prun()
+p = pca()
+p.prun()

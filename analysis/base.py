@@ -12,6 +12,8 @@ import types
 import time
 import sys
 
+from mpi4py import MPI
+
 C2A_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a'
 C2B_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2b'
 DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/alpha200'
@@ -92,6 +94,26 @@ class Analysis(object):
     
     for proc in procs:
       data.extend(proc.get())
+    self.write(data)
+
+  def mpirun(self):
+    """ implrments mpi for analysis module,
+        each mpi process is assigned to trajectories
+        modulo its index
+    """
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
+    size = comm.Get_size()
+    print rank 
+    print size
+    data = []
+    dcds = self.getdcds()
+    for i in range(0, len(dcds)):
+      pid = i % size 
+      if pid == rank:
+        dcd = dcds[i]
+        dcdpath = self.d + "/" + dcd
+        data.extend(self.metric(self.dcdtopsf(dcd), dcdpath))
     self.write(data)
    
 #a = Analysis('/home/prock/Research/namd/data', '~/Research/namd/structures')

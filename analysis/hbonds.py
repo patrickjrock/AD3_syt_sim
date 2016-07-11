@@ -43,5 +43,5 @@ class Hbonds(Analysis):
   def write(self, data, filename="out.data"):
     self.base_write(data, 'hbonds')
 
-h = Hbonds()
+h = Hbonds("/home/prock/Desktop/AD3_syt_sim/staging/cpy/dcds")
 h.prun()
