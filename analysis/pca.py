@@ -24,6 +24,7 @@ class pca(Analysis):
 
     ca = u.select_atoms('name CA')
     ca_xyz = np.array([ca.positions.copy() for ts in u.trajectory])
+    ca_xyz = ca_xyz.reshape(u.trajectory.n_frames, ca.n_atoms * 3, order='F')
     x = ca_xyz - ca_xyz.mean(0)
     cov = np.cov(x, rowvar=0)
 
@@ -33,20 +34,19 @@ class pca(Analysis):
     PCs = e_vecs[:, sort_idx]
     PC_projection = np.dot(x, PCs)
 
-    i = 0
-    j = 0
-    for pc in PC_projection:
-      j = j+1
-      for proj in pc:
-        i = i+1
+    projections = [PC_projection[j] for j in range(0,5)]
+
+    for j in range(0,5):
+      for i in range(0,len(PC_projection[:, j])):
+        weight = PC_projection[i][j]
         name = os.path.basename(dcd)[:-4].split('_')
-        row = [i, j, proj, name[0], name[1], name[2]]
+        row = [i, j, weight, name[0], name[1], name[2]]
+        sys.stderr.write("adding row: " + str(row) + "\n")
         data.append(row)
     return data 
 
-
   def write(self, data, filename="out.data"):
-    print('frame pc projection c2 mutant run')
+    print('frame pc weight c2 mutant run')
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + str(row[2]) + ' ' + row[3] + ' ' + row[4] + ' ' + row[5])
 
