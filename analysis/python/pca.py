@@ -36,17 +36,19 @@ class pca(Analysis):
 
     projections = [PC_projection[j] for j in range(0,5)]
 
-    for j in range(0,5):
-      for i in range(0,len(PC_projection[:, j])):
-        weight = PC_projection[i][j]
-        name = os.path.basename(dcd)[:-4].split('_')
-        row = [i, j, weight, name[0], name[1], name[2]]
-        sys.stderr.write("adding row: " + str(row) + "\n")
-        data.append(row)
+    for i in range(0,len(PC_projection[:, 0])):
+      weights = []
+      name = os.path.basename(dcd)[:-4].split('_')
+      row = [i]
+      for j in range(0,2):
+        row.append(PC_projection[i,j]) 
+      row.extend([name[0], name[1], name[2]]) 
+      sys.stderr.write("adding row: " + str(row) + "\n")
+      data.append(row)
     return data 
 
   def write(self, data, filename="out.data"):
-    print('frame pc weight c2 mutant run')
+    print('frame pc1 pc2 c2 mutant run')
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + str(row[2]) + ' ' + row[3] + ' ' + row[4] + ' ' + row[5])
 
