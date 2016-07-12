@@ -7,20 +7,47 @@
 #
 #
 
-if [ "$#" -ne 4 ]; then
-  echo "Wrong number of command line arguments"
-  echo "Usage: buildnamd path/to/output path/to/pdbfile alpha restraint_index"
-  exit
-fi
+#if [ "$#" -ne 4 ]; then
+#  echo "Wrong number of command line arguments"
+#  echo "Usage: buildnamd path/to/output path/to/pdbfile alpha restraint_index"
+#  exit
+#fi
+
+alpha=""
+rest=""
+out=""
+pdb=""
+
+while test $# -gt 0; do
+        case "$1" in
+                -a|--alpha)
+                        alpha=$1
+                        ;;
+                -r|--restraint)
+                        rest=$1
+                        ;;
+                -o|--out)
+                        out=$1
+                        ;;
+                -p|--pdb)
+                        pdb=$1
+                        ;;
+                *)
+                        break
+                        ;;
+        esac
+done
+
+echo $out
 
 echo "----copying setup into new location"
-cp -r ~/Desktop/AD3_syt_sim/setup $1
+cp -r ~/Desktop/AD3_syt_sim/setup $out 
 echo "----copying pdb file into script directory"
-cp $2 $1/scripts
-cd $1/scripts/
+cp $pdb $out/scripts
+cd $out/scripts/
 echo "----running setup.sh"
 
-ppath=$2
+ppath=$pdb
 s1=${ppath##\/*\/} 
 s2=${s1%.pdb}
 
@@ -36,14 +63,14 @@ echo "----calculating center of mass"
 mv $fname dys.coor
 
 echo "----running model_setup.tcl"
-vmd -dispdev text -e model_setup.tcl -args $4 # atom index to restrain
+vmd -dispdev text -e model_setup.tcl -args $rest # atom index to restrain
 
 mv dys_ionized.pdb ../$pdbname
 mv dys_ionized.psf ../$psfname
 mv restraint.pdb ../restraint.pdb
 
 echo "----generating namd file"
-python namd.py $psfname $pdbname $s2 $3
+python namd.py $psfname $pdbname $s2 $alpha
 mv namd.in ../namd.in
 
 echo "----done"

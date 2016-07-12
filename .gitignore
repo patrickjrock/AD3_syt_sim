@@ -1,4 +1,4 @@
-images/*
+images/
 *.pdf
 staging/*
 *.dcd

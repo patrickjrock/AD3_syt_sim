@@ -45,6 +45,8 @@ The alignment of synaptotagmin-1 through synaptotagmin-17 was computed with maff
 
 ### Principle component analysis
 
+![](images/wt_vs_Y180N.gif)
+
 ### Hydrogen bond analysis
 
 ![](README_files/figure-markdown_github/unnamed-chunk-1-1.png)

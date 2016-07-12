@@ -52,5 +52,5 @@ class pca(Analysis):
     for row in data:
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + str(row[2]) + ' ' + row[3] + ' ' + row[4] + ' ' + row[5])
 
-p = pca()
+p = pca("/home/prock/Desktop/AD3_syt_sim/staging/cpy/dcds")
 p.prun()
