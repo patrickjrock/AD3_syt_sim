@@ -70,21 +70,32 @@ source("./plots/rmsd.R")
 ```
 
 ## Animation
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+source("./plots/animation/volume_density_animation.R")
+source("./plots/animation/distance_density_animation.R")
+source("./plots/animation/volume_fit_animation.R")
+source("./plots/animation/distance_fit_animation.R")
+
+```
+
+Fit                            | Density
+------------------------------ | --------------------------------
+![](README_files/vol_fit.gif)  | ![](README_files/vol_density.gif)
+![](README_files/dist_fit.gif) | ![](README_files/dist_density.gif)
+
 
 Animations of the volume analysis can be found [here](plots/animation/README.md)
 
 ## To Do
-1. Write vmd visualization for distance using line graphics
-2. Restructure readme into smaller chunks for each folder
-3. Write driver for analysis scripts 
-4. Fix pca.py to output an arbitrary number of principle components
-5. Fix buildnamd argument parsing
-6. Investigate dysferlin C2A simulations
-7. Generate gifs with volume visualization
-8. Make interactive plot linking line graph to trajectory gif
-9. Organize dcd files
-10. Investigate normal mode analysis
-11. Do pca clustering in python
+- Fix pca.py to output an arbitrary number of principle components
+- Fix buildnamd argument parsing
+- Investigate dysferlin C2A simulations
+- Organize dcd files
+- do correlation analysis, make network plot
+- Do pca clustering in python
+- Correlate RSA to RMSF 
+- Investigate rotamer analysis for His 237
+- Submit C2B 10,000 runs
 
 ## Links
 1. [Accelerated dynamics](http://www.ks.uiuc.edu/Research/namd/2.9/ug/node63.html)
