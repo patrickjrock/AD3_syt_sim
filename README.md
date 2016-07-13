@@ -42,7 +42,7 @@ Methods
 
 The alignment of synaptotagmin-1 through synaptotagmin-17 was computed with mafft. A python script `cut.py` was used to cut the alignment down to the region in which the AD3 mutation lies. The regions in the alignemt are location `352-357` in C2A and `510-516` in C2B. Mutations in this sequence (SDPYVK) are fatal and therefore it is highly conserved across all C2 domains. This indicates that the 6 residue sequence plays an important structural role in the protein and its ablility to interact with calcium.
 
-![](README_files/C2A_cut.png) ![](README_files/C2B_cut.png)
+![](README_files/C2A_cut.svg) ![](README_files/C2B_cut.svg)
 
 ### Principle component analysis
 
@@ -54,13 +54,13 @@ This plot shows the motion of principle component 1 on the aligned structures of
 
 ### Distance analysis
 
-In an attempt to measure the stability of loop-3, we computed the distance between the apical c alphas of loop 1 and loop 3. For C2A we selected residues 173 and 276, and for C2B residues 305 and 364. The script that computes the distance analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/distance.py)
+In an attempt to measure the stability of loop-3, we computed the distance between the apical c alphas of loop 1 and loop 3. For C2A we selected residues 173 and 276, and for C2B residues 305 and 364. The script that computes the distance analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/python/distance.py)
 
 ![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)![](README_files/figure-markdown_github/unnamed-chunk-2-2.png)
 
 ### Volume analysis
 
-The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each loop for a total of 6. The volume of the pocket was defined as the convex hull of these 6 c alphas. The script that computes the volume analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/volume.py)
+The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each loop for a total of 6. The volume of the pocket was defined as the convex hull of these 6 c alphas. The script that computes the volume analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/python/volume.py)
 
 ![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)![](README_files/figure-markdown_github/unnamed-chunk-3-2.png)
 
