@@ -2,6 +2,6 @@
 
 | Density              | Fit              |
 | -------------------- | ---------------- |
-| ![](vol_density.gif) | ![](vol_fit.gif) |
+| ![](gifs/vol_density.gif) | ![](gifs/vol_fit.gif) |
 | **Line**              | **Protein**      |  
-| ![](vol_line.gif)    | ![](protein.gif) |
+| ![](gifs/vol_line.gif)    | ![](gifs/protein.gif) |
