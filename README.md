@@ -5,8 +5,19 @@ Patrick Rock
 
 -   [Summary](#summary)
 -   [Introduction](#introduction)
+    -   [Synaptotagmin](#synaptotagmin)
+    -   [Accelerated dynamics](#accelerated-dynamics)
+    -   [AD3 Mutation](#ad3-mutation)
 -   [Setup](#setup)
+    -   [NAMD configuration](#namd-configuration)
 -   [Methods](#methods)
+    -   [Webplot and alignment](#webplot-and-alignment)
+    -   [Principle component analysis](#principle-component-analysis)
+    -   [Hydrogen bond analysis](#hydrogen-bond-analysis)
+    -   [Distance analysis](#distance-analysis)
+    -   [Volume analysis](#volume-analysis)
+    -   [RMSD and RMSF](#rmsd-and-rmsf)
+-   [Animation](#animation)
 -   [To Do](#to-do)
 -   [Links](#links)
 
@@ -67,6 +78,11 @@ The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each
 ### RMSD and RMSF
 
 ![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
+
+Animation
+---------
+
+Animations of the volume analysis can be found [here](plots/animation/README.md)
 
 To Do
 -----
