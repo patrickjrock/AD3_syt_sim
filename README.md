@@ -42,7 +42,7 @@ Methods
 
 The alignment of synaptotagmin-1 through synaptotagmin-17 was computed with mafft. A python script `cut.py` was used to cut the alignment down to the region in which the AD3 mutation lies. The regions in the alignemt are location `352-357` in C2A and `510-516` in C2B. Mutations in this sequence (SDPYVK) are fatal and therefore it is highly conserved across all C2 domains. This indicates that the 6 residue sequence plays an important structural role in the protein and its ablility to interact with calcium.
 
-![](README_files/C2A_cut.svg) ![](README_files/C2B_cut.svg)
+![](README_files/C2A_cut.png) ![](README_files/C2B_cut.png)
 
 ### Principle component analysis
 
