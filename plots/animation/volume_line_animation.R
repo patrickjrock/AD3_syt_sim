@@ -14,5 +14,5 @@ saveGIF({
 for (i in 1:100) {
   sub <- subset(volume, frame < i*20)
   print(ggplot(sub) + geom_line(aes(x=frame, y=volume, color=mutant), alpha=.8) + xlim(c(0,2000)) + ylim(c(600,1050)))
-}}, movie.name="volume_line.gif", interval=.1)
+}}, movie.name="vol_line.gif", interval=.1)
 # movie.name="vol.gif", interval=.1, nmax=200)

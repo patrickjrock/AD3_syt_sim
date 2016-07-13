@@ -24,7 +24,5 @@ class Loop_distance(Distance):
       s2 = "resid 367 and name CA"
     return (s1, s2)
 
-
-
-d = Loop_distance("/home/prock/Desktop/AD3_syt_sim/staging/cpy/dcds")
+d = Loop_distance()
 d.prun()
