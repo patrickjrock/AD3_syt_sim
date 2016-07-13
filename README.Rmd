@@ -69,6 +69,19 @@ source("./plots/volume_line.R")
 source("./plots/rmsd.R")
 ```
 
+## To Do
+1. Write vmd visualization for distance using line graphics
+2. Restructure readme into smaller chunks for each folder
+3. Write driver for analysis scripts 
+4. Fix pca.py to output an arbitrary number of principle components
+5. Fix buildnamd argument parsing
+6. Investigate dysferlin C2A simulations
+7. Generate gifs with volume visualization
+8. Make interactive plot linking line graph to trajectory gif
+9. Organize dcd files
+10. Investigate normal mode analysis
+11. Do pca clustering in python
+
 ## Links
 1. [Accelerated dynamics](http://www.ks.uiuc.edu/Research/namd/2.9/ug/node63.html)
 2. [Bio3D](http://thegrantlab.org/bio3d/index.php)

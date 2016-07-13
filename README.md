@@ -7,6 +7,7 @@ July 4, 2016
 -   [Introduction](#introduction)
 -   [Setup](#setup)
 -   [Methods](#methods)
+-   [To Do](#to-do)
 -   [Links](#links)
 
 Summary
@@ -66,6 +67,21 @@ The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each
 ### RMSD and RMSF
 
 ![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
+
+To Do
+-----
+
+1.  Write vmd visualization for distance using line graphics
+2.  Restructure readme into smaller chunks for each folder
+3.  Write driver for analysis scripts
+4.  Fix pca.py to output an arbitrary number of principle components
+5.  Fix buildnamd argument parsing
+6.  Investigate dysferlin C2A simulations
+7.  Generate gifs with volume visualization
+8.  Make interactive plot linking line graph to trajectory gif
+9.  Organize dcd files
+10. Investigate normal mode analysis
+11. Do pca clustering in python
 
 Links
 -----
