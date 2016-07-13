@@ -45,7 +45,7 @@ The alignment of synaptotagmin-1 through synaptotagmin-17 was computed with maff
 
 ### Principle component analysis
 
-![](images/wt_vs_Y180N.gif)
+This plot shows the motion of principle component 1 on the aligned structures of C2A wild type and C2A Y180N. ![](images/wt_vs_Y180N.gif)
 
 ### Hydrogen bond analysis
 
