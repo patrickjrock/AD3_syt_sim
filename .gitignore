@@ -1,7 +1,6 @@
 *.pdf
 staging/*
 *.dcd
-*.html
 *.pyc
 *.data
 *.dat
