@@ -10,5 +10,5 @@ distance_fit_animation <- function(data) {
     sub <- subset(distance, frame < i*20)
     print(ggplot(sub) + geom_point(aes(x=frame, y=distance, color=mutant), alpha=.02) + stat_smooth(aes(x=frame, y=distance, color=mutant), method="loess") +
       facet_grid(. ~ c2) + xlim(c(0,2000)) + ylim(c(5,25)))
-  }}, movie.name="~/Desktop/AD3_syt_sim/README_files/dist_fit.gif", interval=.1)
+  }}, movie.name="/home/prock/Desktop/AD3_syt_sim/README_files/dist_fit.gif", interval=.1)
 }

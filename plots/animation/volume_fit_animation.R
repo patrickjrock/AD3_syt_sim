@@ -10,5 +10,5 @@ volume_fit_animation <- function(data) {
     sub <- subset(volume, frame < i*20)
     print(ggplot(sub) + geom_point(aes(x=frame, y=volume, color=mutant), alpha=.02) + stat_smooth(aes(x=frame, y=volume, color=mutant), method="loess") +
       facet_grid(. ~ c2) + xlim(c(0,2000)) + ylim(c(400,1050)))
-  }}, movie.name="~/Desktop/AD3_syt_sim/README_files/vol_fit.gif", interval=.1)
+  }}, movie.name="/home/prock/Desktop/AD3_syt_sim/README_files/vol_fit.gif", interval=.1)
 }

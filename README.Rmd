@@ -89,6 +89,13 @@ volume_line('data/spherevol.data')
 source("./plots/rmsd.R")
 ```
 
+### Chi2
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+source("./plots/chi_point.R")
+chi_point('data/chi.data')
+```
+
+
 ### RMSF
 
 ## Animation

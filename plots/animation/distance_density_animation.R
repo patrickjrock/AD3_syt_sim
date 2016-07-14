@@ -13,5 +13,5 @@ distance_density_animation <- function(data) {
     sub <- subset(distance, frame < i*20)
     print(ggplot(sub) + geom_density(aes(x=distance, fill=mutant), alpha=.3) + 
       theme_classic() + facet_grid(. ~ c2) + xlim(c(5,25)) + ylim(c(0, 0.35))+ ggtitle("Distance density"))
-  }}, movie.name="~/Desktop/AD3_syt_sim/README_files/dist_density.gif", interval=.1)
+  }}, movie.name="/home/prock/Desktop/AD3_syt_sim/README_files/dist_density.gif", interval=.1)
 }

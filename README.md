@@ -19,6 +19,7 @@ Patrick Rock
     -   [Volume polygon analysis](#volume-polygon-analysis)
     -   [Volume sphere analysis](#volume-sphere-analysis)
     -   [RMSD](#rmsd)
+    -   [Chi2](#chi2)
     -   [RMSF](#rmsf)
 -   [Animation](#animation)
 -   [To Do](#to-do)
@@ -91,6 +92,10 @@ The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each
 ### RMSD
 
 ![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)
+
+### Chi2
+
+![](README_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
 ### RMSF
 

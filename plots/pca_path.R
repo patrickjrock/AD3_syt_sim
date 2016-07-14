@@ -7,7 +7,7 @@ pca_path <- function(data) {
   pca <- read.csv(data, sep="")
   c2a <- subset(pca, c2=="c2a")
   c2b <- subset(pca, c2=="c2b") 
-  p <- ggplot(c2a) + geom_point(aes(x=pc1, y=pc2, color=frame)) + 
-    theme_classic() + facet_grid(mutant ~ run) + ggtitle("pca path")
+  p <- ggplot(c2a) + geom_point(aes(x=pc1, y=pc2, color=mutant)) + 
+    theme_classic() + facet_grid(. ~ mutant) + ggtitle("pca path")
   show(p)
 }

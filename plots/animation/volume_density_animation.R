@@ -9,5 +9,5 @@ volume_density_animation <- function(data) {
   for (i in 1:100) {
     sub <- subset(volume, frame < i*20)
     print(ggplot() + geom_density(data = sub, aes(x=volume, fill=mutant), alpha=.3) + facet_grid(. ~ c2)  + theme_classic() + xlim(c(400,1050)) + ylim(c(0,0.0150)) )
-  }}, movie.name="~/Desktop/AD3_syt_sim/README_files/vol_density.gif", interval=.1)
+  }}, movie.name="/home/prock/Desktop/AD3_syt_sim/README_files/vol_density.gif", interval=.1)
 }
