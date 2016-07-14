@@ -81,5 +81,5 @@ class Sphere(Analysis):
   def write(self, data, filename="out.data"):
     self.base_write(data, "volume")
 
-s = Sphere("/home/prock/Desktop/AD3_syt_sim/staging/cpy/dcds")
+s = Sphere()
 s.prun()

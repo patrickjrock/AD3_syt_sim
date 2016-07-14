@@ -1,7 +1,7 @@
 Synaptotagmin simulation
 ================
 Patrick Rock
-13 July, 2016
+14 July, 2016
 
 -   [Summary](#summary)
 -   [Introduction](#introduction)
@@ -14,9 +14,12 @@ Patrick Rock
     -   [Webplot and alignment](#webplot-and-alignment)
     -   [Principle component analysis](#principle-component-analysis)
     -   [Hydrogen bond analysis](#hydrogen-bond-analysis)
-    -   [Distance analysis](#distance-analysis)
-    -   [Volume analysis](#volume-analysis)
-    -   [RMSD and RMSF](#rmsd-and-rmsf)
+    -   [Loop distance analysis](#loop-distance-analysis)
+    -   [Mutant pair distance analysis](#mutant-pair-distance-analysis)
+    -   [Volume polygon analysis](#volume-polygon-analysis)
+    -   [Volume sphere analysis](#volume-sphere-analysis)
+    -   [RMSD](#rmsd)
+    -   [RMSF](#rmsf)
 -   [Animation](#animation)
 -   [To Do](#to-do)
 -   [Links](#links)
@@ -63,21 +66,31 @@ This plot shows the motion of principle component 1 on the aligned structures of
 
 ![](README_files/figure-markdown_github/unnamed-chunk-1-1.png)
 
-### Distance analysis
+### Loop distance analysis
 
 In an attempt to measure the stability of loop-3, we computed the distance between the apical c alphas of loop 1 and loop 3. For C2A we selected residues 173 and 276, and for C2B residues 305 and 364. The script that computes the distance analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/python/distance.py)
 
 ![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)![](README_files/figure-markdown_github/unnamed-chunk-2-2.png)
 
-### Volume analysis
-
-The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each loop for a total of 6. The volume of the pocket was defined as the convex hull of these 6 c alphas. The script that computes the volume analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/python/volume.py)
+### Mutant pair distance analysis
 
 ![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)![](README_files/figure-markdown_github/unnamed-chunk-3-2.png)
 
-### RMSD and RMSF
+### Volume polygon analysis
 
-![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
+The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each loop for a total of 6. The volume of the pocket was defined as the convex hull of these 6 c alphas. The script that computes the volume analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/python/volume.py)
+
+![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)![](README_files/figure-markdown_github/unnamed-chunk-4-2.png)
+
+### Volume sphere analysis
+
+![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)![](README_files/figure-markdown_github/unnamed-chunk-5-2.png)
+
+### RMSD
+
+![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)
+
+### RMSF
 
 Animation
 ---------
@@ -100,7 +113,6 @@ To Do
 -   Do pca clustering in python
 -   Correlate RSA to RMSF
 -   Investigate rotamer analysis for His 237
--   Submit C2B 10,000 runs
 
 Links
 -----

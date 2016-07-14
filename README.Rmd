@@ -46,35 +46,51 @@ This plot shows the motion of principle component 1 on the aligned structures of
 source("./plots/hbonds_line.R")
 ```
 
-### Distance analysis
+### Loop distance analysis
 In an attempt to measure the stability of loop-3, we computed the distance between the apical c alphas of loop 1 and loop 3. For C2A we selected residues 173 and 276, and for C2B residues 305 and 364. The script that computes the distance analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/python/distance.py)
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 source("./plots/distance_density.R")
 source("./plots/distance_line.R")
+distance_density('data/dist.data')
+distance_line("data/dist.data")
 ```
 
-### Volume analysis
+### Mutant pair distance analysis
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+distance_density('data/mutadist.data')
+distance_line("data/mutadist.data")
+```
+
+### Volume polygon analysis
 The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each loop for a total of 6. The volume of the pocket was defined as the convex hull of these 6 c alphas. The script that computes the volume analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/python/volume.py)
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 source("./plots/volume_density.R")
 source("./plots/volume_line.R")
+volume_density('data/vol.data')
+volume_line('data/vol.data')
 ```
 
+### Volume sphere analysis
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+volume_density('data/spherevol.data')
+volume_line('data/spherevol.data')
+```
 
-### RMSD and RMSF
-
+### RMSD 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 source("./plots/rmsd.R")
 ```
 
+### RMSF
+
 ## Animation
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-source("./plots/animation/volume_density_animation.R")
-source("./plots/animation/distance_density_animation.R")
-source("./plots/animation/volume_fit_animation.R")
-source("./plots/animation/distance_fit_animation.R")
+#source("./plots/animation/volume_density_animation.R")
+#source("./plots/animation/distance_density_animation.R")
+#source("./plots/animation/volume_fit_animation.R")
+#source("./plots/animation/distance_fit_animation.R")
 
 ```
 
@@ -95,7 +111,6 @@ Animations of the volume analysis can be found [here](plots/animation/README.md)
 - Do pca clustering in python
 - Correlate RSA to RMSF 
 - Investigate rotamer analysis for His 237
-- Submit C2B 10,000 runs
 
 ## Links
 1. [Accelerated dynamics](http://www.ks.uiuc.edu/Research/namd/2.9/ug/node63.html)

@@ -1,5 +1,5 @@
 mol new "/home/prock/Desktop/AD3_syt_sim/structures/psf/c2a_wt.psf"
-mol addfile "/home/prock/Desktop/AD3_syt_sim/staging/cpy/dcds/c2a_wt_1.dcd"
+mol addfile "out_line.dcd"
 
 proc drawframe {} {
   draw delete all
@@ -13,7 +13,7 @@ proc drawframe {} {
   puts $p1
   puts $p2
 
-  draw line $p1 $p2  
+  draw line $p1 $p2 width 3 
 }
 
 proc enabletrace {} {
