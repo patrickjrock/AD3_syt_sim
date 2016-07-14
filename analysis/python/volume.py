@@ -69,5 +69,5 @@ class Volume(Analysis):
     self.base_write(data, "volume")
 
 v = Volume()
-v.prun()
-#v.compute_hull("../structures/psf/c2a_wt.psf", "/home/prock/Desktop/AD3_syt_sim/staging/cpy/dcds/c2a_wt_1.dcd")
+#v.prun()
+v.compute_hull("../../structures/psf/c2a_wt.psf", "../tcl/out.dcd")
