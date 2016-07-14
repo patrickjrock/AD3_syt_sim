@@ -40,6 +40,12 @@ The alignment of synaptotagmin-1 through synaptotagmin-17 was computed with maff
 This plot shows the motion of principle component 1 on the aligned structures of C2A wild type and C2A Y180N.
 ![](images/wt_vs_Y180N.gif)
 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+source("./plots/pca_path.R")
+pca_path("data/pca.data")
+```
+
 ### Hydrogen bond analysis
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -87,11 +93,16 @@ source("./plots/rmsd.R")
 
 ## Animation
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-#source("./plots/animation/volume_density_animation.R")
-#source("./plots/animation/distance_density_animation.R")
-#source("./plots/animation/volume_fit_animation.R")
-#source("./plots/animation/distance_fit_animation.R")
-
+if(FALSE){
+source("./plots/animation/volume_density_animation.R")
+source("./plots/animation/distance_density_animation.R")
+source("./plots/animation/volume_fit_animation.R")
+source("./plots/animation/distance_fit_animation.R")
+volume_density_animation('data/vol.data')
+distance_density_animation('data/dist.data')
+volume_fit_animation('data/vol.data')
+distance_fit_animation('data/dist.data')
+}
 ```
 
 Fit                            | Density

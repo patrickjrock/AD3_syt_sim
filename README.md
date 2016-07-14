@@ -62,33 +62,35 @@ The alignment of synaptotagmin-1 through synaptotagmin-17 was computed with maff
 
 This plot shows the motion of principle component 1 on the aligned structures of C2A wild type and C2A Y180N. ![](images/wt_vs_Y180N.gif)
 
+![](README_files/figure-markdown_github/unnamed-chunk-1-1.png)
+
 ### Hydrogen bond analysis
 
-![](README_files/figure-markdown_github/unnamed-chunk-1-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)
 
 ### Loop distance analysis
 
 In an attempt to measure the stability of loop-3, we computed the distance between the apical c alphas of loop 1 and loop 3. For C2A we selected residues 173 and 276, and for C2B residues 305 and 364. The script that computes the distance analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/python/distance.py)
 
-![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)![](README_files/figure-markdown_github/unnamed-chunk-2-2.png)
+![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)![](README_files/figure-markdown_github/unnamed-chunk-3-2.png)
 
 ### Mutant pair distance analysis
 
-![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)![](README_files/figure-markdown_github/unnamed-chunk-3-2.png)
+![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)![](README_files/figure-markdown_github/unnamed-chunk-4-2.png)
 
 ### Volume polygon analysis
 
 The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each loop for a total of 6. The volume of the pocket was defined as the convex hull of these 6 c alphas. The script that computes the volume analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/python/volume.py)
 
-![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)![](README_files/figure-markdown_github/unnamed-chunk-4-2.png)
+![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)![](README_files/figure-markdown_github/unnamed-chunk-5-2.png)
 
 ### Volume sphere analysis
 
-![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)![](README_files/figure-markdown_github/unnamed-chunk-5-2.png)
+![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)![](README_files/figure-markdown_github/unnamed-chunk-6-2.png)
 
 ### RMSD
 
-![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
 ### RMSF
 
