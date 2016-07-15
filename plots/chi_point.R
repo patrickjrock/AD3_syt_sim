@@ -7,6 +7,6 @@ library(cowplot)
 chi_point <- function(data) {
   chi <- read.csv(data, sep="")
   p <- ggplot(chi) + geom_histogram(aes(x=chi2), alpha=.8) + 
-    theme_classic() + facet_grid(. ~ mutant) + ggtitle("His 237 Chi 2")
+    theme_classic() + facet_grid(c2 ~ mutant) + ggtitle("His 237 Chi 2")
   show(p)
 }
