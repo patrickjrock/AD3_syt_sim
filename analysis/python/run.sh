@@ -6,3 +6,4 @@ python rmsd.py > ../../data/rmsd.data
 python rmsf.py > ../../data/rmsf.data
 python muta_distance.py > ../../data/mutadist.data 
 python pca.py > ../../data/pca.data
+python chi.py > ../../data/chi.data
