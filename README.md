@@ -99,6 +99,8 @@ The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each
 
 ### RMSF
 
+![](README_files/rsa_rmsf.png)
+
 Animation
 ---------
 

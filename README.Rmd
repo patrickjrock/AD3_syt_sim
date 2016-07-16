@@ -97,6 +97,7 @@ chi_point('data/chi.data')
 
 
 ### RMSF
+![](README_files/rsa_rmsf.png)
 
 ## Animation
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
