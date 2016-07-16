@@ -12,6 +12,9 @@ import os
 class Chi(Analysis):
 
   def get_selection(self, psf):
+    """returns resid of the amino acid
+       for which chi2 is measured
+    """
     fname = os.path.basename(psf)
     if fname[:3] == "c2a":
       s = (97, "CD2")
@@ -20,13 +23,14 @@ class Chi(Analysis):
     return s 
 
   def metric(self, psf, dcd):
+    """computes the chi2 angle in the residue which 
+       forms hydrogen bonds with the mutant residue
+    """
     u = MDAnalysis.Universe(psf, dcd)
 
     resid, atom_name = self.get_selection(psf) 
     data = []
-    i = 0 
-    for ts in u.trajectory:
-      i = i +1
+    for i, ts in enumerate(u.trajectory):
       self.log(i) 
       protein = u.select_atoms("protein")
       res = protein.residues[resid]

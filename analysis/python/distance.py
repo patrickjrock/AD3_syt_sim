@@ -19,10 +19,8 @@ class Distance(Analysis):
 
     u = MDAnalysis.Universe(psf, dcd)
     data = []
-    i = 0
-    for ts in u.trajectory:
+    for i, ts in enumerate(u.trajectory):
       self.log(i)
-      i = i + 1
       loop3 = u.select_atoms(s[0])
       loop1 = u.select_atoms(s[1])
       d = MDAnalysis.analysis.distances.dist(loop1, loop3)

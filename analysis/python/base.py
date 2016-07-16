@@ -50,7 +50,7 @@ class Analysis(object):
   def base_write(self, data, metric_name):
     print('frame ' + metric_name + ' c2 mutant run')
     for row in data:
-      print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + row[3] + ' ' + row[4]) 
+      print " ".join(map(str, row))
 
   def log(self, i):
     """ write out progress for tracking pool performance """

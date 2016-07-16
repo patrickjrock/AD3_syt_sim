@@ -14,6 +14,9 @@ import base
 class Volume(Analysis):
 
   def get_selection(self, psf): 
+    """defines the boundaries of the hull for C2A 
+       versus C2B
+    """
     fname = os.path.basename(psf)
     s = []
     if fname[:3] == "c2a":
@@ -27,6 +30,7 @@ class Volume(Analysis):
     return s
 
   def write_hull(self, h, ps):
+    """write out points in hull for use by vmd"""
     out = ""
     for sim in h.simplices:
       points = [ps[sim[x]] for x in range(0,3)]
@@ -36,12 +40,14 @@ class Volume(Analysis):
     print out[:-1] + ';'
 
   def compute_hull(self, psf, dcd):
+    """used to get hull coordinates for rendering,
+       this should be refactored to remove redundant code 
+       in metric
+    """"
     s = self.get_selection(psf)
     u = MDAnalysis.Universe(psf, dcd)
-    i = 0
     data = []
-    for ts in u.trajectory: 
-      i = i+1
+    for i, ts in enumerate(u.trajectory): 
       points = []    
       for res in s:
         points.extend([atom.position for atom in u.select_atoms("resid " + str(res) + " and name CA")])
@@ -49,13 +55,12 @@ class Volume(Analysis):
       self.write_hull(hull, points)
 
   def metric(self, psf, dcd):
+    """measure volmue of convex hull defined by selection"""
     s = self.get_selection(psf)
     u = MDAnalysis.Universe(psf, dcd)
-    i = 0
     data = []
-    for ts in u.trajectory: 
+    for i, ts in enumerate(u.trajectory): 
       self.log(i)
-      i = i+1
       points = []    
       for res in s:
         points.extend([atom.position for atom in u.select_atoms("resid " + str(res) + " and name CA")])
