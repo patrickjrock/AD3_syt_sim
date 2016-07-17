@@ -43,7 +43,7 @@ class Volume(Analysis):
     """used to get hull coordinates for rendering,
        this should be refactored to remove redundant code 
        in metric
-    """"
+    """
     s = self.get_selection(psf)
     u = MDAnalysis.Universe(psf, dcd)
     data = []
