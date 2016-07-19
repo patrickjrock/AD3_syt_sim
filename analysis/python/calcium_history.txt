@@ -1,0 +1,29 @@
+c = CalciumVolume()
+from calcium_volume import *
+from prody import *
+p = parsePDB('../../structures/1byn.pdb')
+c = CalciumVolume()
+s = c.get_selection('../../structures/psf/c2a_wt.psf')
+s
+p.select(s)
+sele = p.select(s)
+sele
+
+sele.getIndices()
+p
+p[0]
+p[497]
+p[497].iterCoordsets()
+p[497].getAltloc()
+p[497].getcoords()
+p[497].getCoords()
+atoms = [p[i] for i in sele.getIndices()]
+atoms
+coords = [a.getCoords() for a in atoms]
+coords
+from scipy.spatial import ConvexHull
+hull = ConvexHull(coords)
+hull
+hull.volume
+import readline
+readline.write_history_file('calcium_history')

@@ -20,7 +20,7 @@ class Muta_distance(Distance):
       s2 = "resid 180 and name CB"
 
     if fname[:3] == "c2b":
-      s1 = "resid 363 and name CB" 
+      s1 = "resid 370 and name CB" 
       s2 = "resid 311 and name CB"
     return (s1, s2)
 

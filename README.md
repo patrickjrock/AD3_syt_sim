@@ -1,7 +1,7 @@
 Synaptotagmin simulation
 ================
 Patrick Rock
-17 July, 2016
+18 July, 2016
 
 -   [Summary](#summary)
 -   [Introduction](#introduction)
@@ -16,11 +16,12 @@ Patrick Rock
     -   [Hydrogen bond analysis](#hydrogen-bond-analysis)
     -   [Loop distance analysis](#loop-distance-analysis)
     -   [Mutant pair distance analysis](#mutant-pair-distance-analysis)
+    -   [Average distance analysis](#average-distance-analysis)
     -   [Volume polygon analysis](#volume-polygon-analysis)
-    -   [Volume sphere analysis](#volume-sphere-analysis)
+    -   [Calcium binding atom volume](#calcium-binding-atom-volume)
     -   [RMSD](#rmsd)
     -   [Chi2](#chi2)
-    -   [RMSF](#rmsf)
+    -   [RMSF vs RSA](#rmsf-vs-rsa)
 -   [Animation](#animation)
 -   [To Do](#to-do)
 -   [Links](#links)
@@ -67,7 +68,7 @@ This plot shows the motion of principle component 1 on the aligned structures of
 
 ### Hydrogen bond analysis
 
-![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)![](README_files/figure-markdown_github/unnamed-chunk-2-2.png)
 
 ### Loop distance analysis
 
@@ -79,27 +80,31 @@ In an attempt to measure the stability of loop-3, we computed the distance betwe
 
 ![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)![](README_files/figure-markdown_github/unnamed-chunk-4-2.png)
 
+### Average distance analysis
+
+We measured the average distances between residues in each loop. ![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)![](README_files/figure-markdown_github/unnamed-chunk-5-2.png)
+
 ### Volume polygon analysis
 
 The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each loop for a total of 6. The volume of the pocket was defined as the convex hull of these 6 c alphas. The script that computes the volume analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/python/volume.py)
 
-![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)![](README_files/figure-markdown_github/unnamed-chunk-5-2.png)
-
-### Volume sphere analysis
-
 ![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)![](README_files/figure-markdown_github/unnamed-chunk-6-2.png)
+
+### Calcium binding atom volume
+
+![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)![](README_files/figure-markdown_github/unnamed-chunk-7-2.png)
 
 ### RMSD
 
-![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
 ### Chi2
 
-![](README_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-9-1.png)![](README_files/figure-markdown_github/unnamed-chunk-9-2.png)
 
-### RMSF
+### RMSF vs RSA
 
-![](README_files/rsa_rmsf.png)
+![](README_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
 Animation
 ---------

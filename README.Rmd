@@ -50,6 +50,7 @@ pca_path("data/pca.data")
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 source("./plots/hbonds_line.R")
+source("./plots/hbonds_hist.R")
 ```
 
 ### Loop distance analysis
@@ -68,6 +69,13 @@ distance_density('data/mutadist.data')
 distance_line("data/mutadist.data")
 ```
 
+### Average distance analysis
+We measured the average distances between residues in each loop.
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+distance_density('data/avgdist.data')
+distance_line("data/avgdist.data")
+```
+
 ### Volume polygon analysis
 The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each loop for a total of 6. The volume of the pocket was defined as the convex hull of these 6 c alphas. The script that computes the volume analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/python/volume.py)
 
@@ -78,10 +86,13 @@ volume_density('data/vol.data')
 volume_line('data/vol.data')
 ```
 
-### Volume sphere analysis
+### Calcium binding atom volume
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-volume_density('data/spherevol.data')
-volume_line('data/spherevol.data')
+source("./plots/volume_density.R")
+source("./plots/volume_line.R")
+volume_density('data/calciumvol.data')
+volume_line('data/calciumvol.data')
 ```
 
 ### RMSD 
@@ -91,13 +102,17 @@ source("./plots/rmsd.R")
 
 ### Chi2
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+source("./plots/chi_hist.R")
+chi_hist('data/chi.data')
 source("./plots/chi_point.R")
 chi_point('data/chi.data')
 ```
 
 
-### RMSF
-![](README_files/rsa_rmsf.png)
+### RMSF vs RSA
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+source("./plots/rmsfvsrsa.R")
+```
 
 ## Animation
 ```{r echo=FALSE, message=FALSE, warning=FALSE}

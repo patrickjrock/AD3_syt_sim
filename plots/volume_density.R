@@ -6,7 +6,7 @@ library(cowplot)
 
 volume_density <- function(data) {
   volume <- read.csv(data, sep="")
-  p <- ggplot() + geom_density(data = volume[volume$frame > 50, ], aes(x=volume, fill=mutant), alpha=.3)  + theme_classic() + facet_grid(. ~ c2) +
+  p <- ggplot() + geom_density(data = volume[volume$frame > 50, ], aes(x=volume, color=mutant), alpha=.3)  + theme_classic() + facet_grid(. ~ c2) +
     ggtitle("Volume density")
   show(p)
 }

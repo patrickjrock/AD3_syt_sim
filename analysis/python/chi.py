@@ -19,7 +19,7 @@ class Chi(Analysis):
     if fname[:3] == "c2a":
       s = (97, "CD2")
     if fname[:3] == "c2b":
-      s = (98, "ND2")
+      s = (98, "OD1")
     return s 
 
   def metric(self, psf, dcd):

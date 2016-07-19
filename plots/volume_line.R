@@ -4,7 +4,7 @@ library(cowplot)
 
 volume_line <- function(data) {
   volume <- read.csv(data, sep="")
-  p <- ggplot(volume) + geom_point(aes(x=frame, y=volume, color=mutant), alpha=.02) + stat_smooth(aes(x=frame, y=volume, color=mutant), method="loess") +
-    facet_grid(. ~ c2)
+  p <- ggplot(volume) + geom_point(aes(x=frame, y=volume, color=mutant), alpha=.05) +
+    facet_wrap(~mutant + c2)
   show(p)
 }

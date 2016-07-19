@@ -21,22 +21,27 @@ class Rmsf_ana(Analysis):
   def metric(self, psf, dcd):
     u = MDAnalysis.Universe(psf, dcd)
     bb = u.select_atoms('backbone and name CA')
-    
+    protein = u.select_atoms('protein')    
     data = []
     i = 0 
     rmsf_out = MDAnalysis.analysis.rms.RMSF(bb) 
     rmsf_out.run(start=0, stop=2000)
    
-    for n  in rmsf_out._rmsf:
-      i = i+1 
-      row = [i, n, os.path.basename(dcd)[:-4]]  # row format is [index, distance, run label]
+    for i, val in enumerate(rmsf_out._rmsf):
+
+      name = os.path.basename(dcd)[:-4].split('_')
+
+      resid = protein.residues[i].resid
+
+      row = [resid, val, name[0], name[1], name[2]]  # row format is [index, distance, run label]
       data.append(row)
     return data
 
   def write(self, data, filename="out,data"):
-    print ('CAs rmsf label')
+    print('resid rmsf c2 mutant run')
     for row in data:
-      print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2])
+      print " ".join(map(str, row))
+
 
 r = Rmsf_ana()
 r.prun()

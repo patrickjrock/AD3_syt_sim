@@ -4,7 +4,10 @@ Date: July 5th 2016
 """
 
 import MDAnalysis
+from MDAnalysis import *
 import MDAnalysis.analysis.distances
+from MDAnalysis.analysis.align import *
+from MDAnalysis import Universe
 import numpy as np
 import sys
 import os 
@@ -19,7 +22,7 @@ class pca(Analysis):
     """
     https://gist.github.com/kain88-de/0bfe0813e27ad601004b247fedb2ee7d
     """
-    u = MDAnalysis.Universe(psf, dcd)
+    u = Universe(psf, dcd)
     data = []
 
     ca = u.select_atoms('name CA')
@@ -36,14 +39,13 @@ class pca(Analysis):
 
     projections = [PC_projection[j] for j in range(0,5)]
 
-    for i in range(0,len(PC_projection[:, 0])):
+    for i in range(0,len(PC_projection[:, 0])): 
       weights = []
       name = os.path.basename(dcd)[:-4].split('_')
       row = [i]
       for j in range(0,2):
         row.append(PC_projection[i,j]) 
       row.extend([name[0], name[1], name[2]]) 
-      sys.stderr.write("adding row: " + str(row) + "\n")
       data.append(row)
     return data 
 

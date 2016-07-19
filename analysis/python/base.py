@@ -16,7 +16,7 @@ from mpi4py import MPI
 
 C2A_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a'
 C2B_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2b'
-DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/control'
+DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/control/c2a'
 PSF_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/psf'
 
 def _pickle_method(m):
@@ -57,7 +57,6 @@ class Analysis(object):
     if i % 100 == 0:
       sys.stderr.write("process " + str(os.getpid()) + ": at timestep " + str(i) + "\n") 
  
-
   def getdcds(self):
     files = listdir(self.d)
     dcdfiles = []

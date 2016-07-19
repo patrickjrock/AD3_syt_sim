@@ -6,7 +6,7 @@ library(cowplot)
 
 distance_density <- function(data) {
   distance <- read.csv(data, sep="")
-  p <- ggplot(distance) + geom_density(aes(x=distance, fill=mutant), alpha=.3) + 
+  p <- ggplot(distance) + geom_density(aes(x=distance, color=mutant), alpha=.3) + 
     theme_classic() + facet_grid(. ~ c2) + ggtitle("Distance density")
   show(p)
 }

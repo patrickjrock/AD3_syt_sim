@@ -23,7 +23,7 @@ $sel writepdb dys_oriented.pdb
 autopsf dys_oriented.pdb
 solvate dys_autopsf.psf dys_autopsf.pdb -o dys_solvate -s WT -b 2.4 -x 10 -y 10 -z 10 +x 10 +y 10 +z 10
 
-autoionize -psf dys_solvate.psf -pdb dys_solvate.pdb -o dys_ionized -sc 0.15
+autoionize -psf dys_solvate.psf -pdb dys_solvate.pdb -o dys_ionized -sc 0.15 -cation CAL
 
 set mol1 [mol new dys_ionized.pdb type pdb waitfor all]
 

@@ -17,17 +17,7 @@ class Volume(Analysis):
     """defines the boundaries of the hull for C2A 
        versus C2B
     """
-    fname = os.path.basename(psf)
-    s = []
-    if fname[:3] == "c2a":
-      s.extend(range(171,179))
-      s.append(200)
-      s.extend(range(230,239))
-    if fname[:3] == "c2b":
-      s.extend(range(303,309))
-      s.append(333)
-      s.extend(range(365,371))
-    return s
+    raise NotImplementedError("get_selection not implemented")
 
   def write_hull(self, h, ps):
     """write out points in hull for use by vmd"""
@@ -43,14 +33,14 @@ class Volume(Analysis):
     """used to get hull coordinates for rendering,
        this should be refactored to remove redundant code 
        in metric
+       selection is broken 
     """
     s = self.get_selection(psf)
     u = MDAnalysis.Universe(psf, dcd)
     data = []
     for i, ts in enumerate(u.trajectory): 
       points = []    
-      for res in s:
-        points.extend([atom.position for atom in u.select_atoms("resid " + str(res) + " and name CA")])
+      points.extend([atom.position for atom in u.select_atoms(s)])
       hull = ConvexHull(points)
       self.write_hull(hull, points)
 
@@ -62,8 +52,7 @@ class Volume(Analysis):
     for i, ts in enumerate(u.trajectory): 
       self.log(i)
       points = []    
-      for res in s:
-        points.extend([atom.position for atom in u.select_atoms("resid " + str(res) + " and name CA")])
+      points.extend([atom.position for atom in u.select_atoms(s)])
       hull = ConvexHull(points)
       name = os.path.basename(dcd)[:-4].split('_')
       row = [i, hull.volume, name[0], name[1], name[2]]
@@ -73,6 +62,4 @@ class Volume(Analysis):
   def write(self, data, filename="out.data"):
     self.base_write(data, "volume")
 
-v = Volume()
-v.prun()
 #v.compute_hull("../../structures/psf/c2a_wt.psf", "../tcl/out.dcd")

@@ -3,7 +3,7 @@ mol new "/home/prock/Desktop/AD3_syt_sim/structures/psf/c2a_wt.psf"
 mol addfile "out.dcd"
 
 proc readdata {} {
-  set fp [open "/home/prock/Desktop/AD3_syt_sim/data/hull_align.data" r]
+  set fp [open "/home/prock/Desktop/AD3_syt_sim/data/hull_coords.data" r]
   set data [read $fp]
   close $fp
   set data [split $data ";"]
