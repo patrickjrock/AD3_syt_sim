@@ -1,7 +1,7 @@
 Synaptotagmin simulation
 ================
 Patrick Rock
-18 July, 2016
+21 July, 2016
 
 -   [Summary](#summary)
 -   [Introduction](#introduction)
@@ -23,7 +23,6 @@ Patrick Rock
     -   [Chi2](#chi2)
     -   [RMSF vs RSA](#rmsf-vs-rsa)
 -   [Animation](#animation)
--   [To Do](#to-do)
 -   [Links](#links)
 
 Summary
@@ -88,8 +87,6 @@ We measured the average distances between residues in each loop. ![](README_file
 
 The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each loop for a total of 6. The volume of the pocket was defined as the convex hull of these 6 c alphas. The script that computes the volume analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/python/volume.py)
 
-![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)![](README_files/figure-markdown_github/unnamed-chunk-6-2.png)
-
 ### Calcium binding atom volume
 
 ![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)![](README_files/figure-markdown_github/unnamed-chunk-7-2.png)
@@ -104,8 +101,6 @@ The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each
 
 ### RMSF vs RSA
 
-![](README_files/figure-markdown_github/unnamed-chunk-10-1.png)
-
 Animation
 ---------
 
@@ -115,18 +110,6 @@ Animation
 | ![](README_files/dist_fit.gif) | ![](README_files/dist_density.gif) |
 
 Animations of the volume analysis can be found [here](plots/animation/README.md)
-
-To Do
------
-
--   Fix pca.py to output an arbitrary number of principle components
--   Fix buildnamd argument parsing
--   Investigate dysferlin C2A simulations
--   Organize dcd files
--   do correlation analysis, make network plot
--   Do pca clustering in python
--   Correlate RSA to RMSF
--   Investigate rotamer analysis for His 237
 
 Links
 -----

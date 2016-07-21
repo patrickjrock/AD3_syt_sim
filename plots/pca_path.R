@@ -8,11 +8,11 @@ pca_path <- function(data) {
   pca <- read.csv(data, sep="")
   c2a <- subset(pca, c2=="c2a")
   c2b <- subset(pca, c2=="c2b") 
-  p1 <- ggplot(c2a) + geom_point(aes(x=pc1, y=pc2, color=mutant)) + 
+  p <- ggplot(c2a) + geom_point(aes(x=pc1, y=pc2, color=mutant)) + 
     theme_classic() + facet_grid(mutant ~ c2) + ggtitle("pca path")
-  p2 <- ggplot(c2b) + geom_point(aes(x=pc1, y=pc2, color=mutant)) + 
-    theme_classic() + facet_grid(mutant ~ c2) + ggtitle("pca path")
+#  p2 <- ggplot(c2b) + geom_point(aes(x=pc1, y=pc2, color=mutant)) + 
+#    theme_classic() + facet_grid(mutant ~ c2) + ggtitle("pca path")
   
-  p <- plot_grid(p1,p2)
+#  p <- plot_grid(p1,p2)
   show(p)
 }

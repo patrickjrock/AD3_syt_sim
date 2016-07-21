@@ -1,0 +1,10 @@
+parallel python loop_distance.py > ../../data/dist.data
+parallel python volume.py > ../../data/vol.data
+parallel python hbonds.py > ../../data/hbonds.data
+parallel python sphere.py > ../../data/spherevol.data
+parallel python rmsd.py > ../../data/rmsd.data 
+parallel python rmsf.py > ../../data/rmsf.data
+parallel python muta_distance.py > ../../data/mutadist.data 
+parallel python pca.py > ../../data/pca.data
+parallel python chi.py > ../../data/chi.data
+parallel python cal_volume.py > ../../data/calciumvol.data

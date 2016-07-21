@@ -4,7 +4,7 @@ library(cowplot)
 distance_line <- function(data) {
   distance <- read.csv(data, sep="")
   p <- ggplot(distance) + geom_point(aes(x=frame, y=distance, color=mutant), alpha=.05) +
-    facet_wrap(~mutant + c2)
+    facet_grid(run ~ c2)
   
   show(p)
 }

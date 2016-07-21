@@ -94,14 +94,9 @@ constraintScaling   1.0
 # Tot Energy   = AverageTotalPotential + NumAtoms / 5
 # Tot Alpha    = NumAtoms / 5 = 4560
 
-accelMD             on
-accelMDdihe         on
-accelMDE          2900
-accelMDalpha       {{ alpha }}
+accelMD            off
+accelMDdihe        off 
 accelMDdual        off
-accelMDTE       -60000 
-accelMDTalpha     4560
-accelMDOutFreq    1000
 
 # Scripting
 

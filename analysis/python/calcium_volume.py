@@ -23,7 +23,7 @@ class CalciumVolume(Volume):
     s = "empty"
     if fname[:3] == "c2a":
       s = '(resid 171 and name O)'
-      s = s + ' or (resid 171 and (name OD2 or name OD1))'
+      s = s + ' or (resid 172 and (name OD2 or name OD1))'
       s = s + ' or (resid 178 and name OD2)'
       s = s + ' or (resid 230 and (name OD1 or name OD2))'
       s = s + ' or (resid 232 and (name OD1 or name OD2))'
@@ -32,9 +32,14 @@ class CalciumVolume(Volume):
       s = s + ' or (resid 235 and name OG)'
       s = s + ' or (resid 231 and name O)'
     if fname[:3] == "c2b":
-      pass 
+      s = '(resid 302 and name O)'
+      s = s + 'or (resid 303 and (name OD2 or name OD1))'
+      s = s + 'or (resid 309 and name OD1)'
+      s = s + 'or (resid 364 and name O)'
+      s = s + 'or (resid 365 and (name OD2 or name OD1))'
+      s = s + 'or (resid 363 and (name OD2 or name OD1))'
     return s
 
 v = CalciumVolume()
-#v.prun()
-#v.compute_hull("../../structures/psf/c2a_wt.psf", "../../data/dcds/control/c2a/c2a_wt_1.dcd")
+v.prun()
+#v.compute_hull("../../structures/psf/c2b_wt.psf", "../../data/dcds/control/c2b_wt_1.dcd")

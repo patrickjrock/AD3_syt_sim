@@ -16,7 +16,7 @@ from mpi4py import MPI
 
 C2A_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a'
 C2B_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2b'
-DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/control/c2a'
+DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/control'
 PSF_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/psf'
 
 def _pickle_method(m):
@@ -67,8 +67,9 @@ class Analysis(object):
     return dcdfiles
   
   def dcdtopsf(self, dcdname):
-    cut = dcdname[:-6]    
-    return self.p + "/" + cut + ".psf"
+    cut = dcdname.split('_')
+    name = cut[0] + '_' + cut[1]    
+    return self.p + "/" + name + ".psf"
 
   def run(self):
     dcds = self.getdcds()

@@ -82,16 +82,15 @@ The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 source("./plots/volume_density.R")
 source("./plots/volume_line.R")
-volume_density('data/vol.data')
-volume_line('data/vol.data')
+#volume_density('data/vol.data')
+#volume_line('data/vol.data')
 ```
 
 ### Calcium binding atom volume
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-source("./plots/volume_density.R")
-source("./plots/volume_line.R")
-volume_density('data/calciumvol.data')
+source("./plots/calvol_density.R")
+calvol_density('data/calciumvol.data')
 volume_line('data/calciumvol.data')
 ```
 
@@ -111,7 +110,7 @@ chi_point('data/chi.data')
 
 ### RMSF vs RSA
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-source("./plots/rmsfvsrsa.R")
+#source("./plots/rmsfvsrsa.R")
 ```
 
 ## Animation
@@ -135,16 +134,6 @@ Fit                            | Density
 
 
 Animations of the volume analysis can be found [here](plots/animation/README.md)
-
-## To Do
-- Fix pca.py to output an arbitrary number of principle components
-- Fix buildnamd argument parsing
-- Investigate dysferlin C2A simulations
-- Organize dcd files
-- do correlation analysis, make network plot
-- Do pca clustering in python
-- Correlate RSA to RMSF 
-- Investigate rotamer analysis for His 237
 
 ## Links
 1. [Accelerated dynamics](http://www.ks.uiuc.edu/Research/namd/2.9/ug/node63.html)

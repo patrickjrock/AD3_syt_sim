@@ -15,8 +15,11 @@ xyz <- fit.xyz(fixed=pdb$xyz, mobile=dcd,
 
 cij<-dccm(xyz[,ca.inds$xyz], ncore=16)
 out<-paste("/home/prock/Desktop/AD3_syt_sim/analysis/R/jpgs/", basename(args[2]), ".jpg", sep="")
-jpeg(out)
-plot(cij)
-dev.off()
 
-view.dccm(cij, pdb)
+write.table(cij, file='cij.data', row.names=FALSE, col.names=FALSE)
+
+#jpeg(out)
+#plot(cij)
+#dev.off()
+
+#view.dccm(cij, pdb)
