@@ -7,9 +7,9 @@
 #
 #
 
-if [ "$#" -ne 4 ]; then
+if [ "$#" -ne 3]; then
   echo "Wrong number of command line arguments"
-  echo "Usage: buildnamd path/to/output path/to/pdbfile alpha restraint_index"
+  echo "Usage: buildnamd path/to/output path/to/pdbfile restraint_index"
   exit
 fi
 
@@ -24,6 +24,7 @@ ppath=$2
 s1=${ppath##\/*\/} 
 s2=${s1%.pdb}
 
+
 ######
 
 fname=$s2"_center.pdb"
@@ -36,14 +37,14 @@ echo "----calculating center of mass"
 mv $fname dys.coor
 
 echo "----running model_setup.tcl"
-vmd -dispdev text -e model_setup.tcl -args $4 # atom index to restrain
+vmd -dispdev text -e model_setup.tcl -args $3 # atom index to restrain
 
 mv dys_ionized.pdb ../$pdbname
 mv dys_ionized.psf ../$psfname
 mv restraint.pdb ../restraint.pdb
 
 echo "----generating namd file"
-python namd.py $psfname $pdbname $s2 $3
+python namd.py $psfname $pdbname $(basename $1) 
 mv namd.in ../namd.in
 
 echo "----done"

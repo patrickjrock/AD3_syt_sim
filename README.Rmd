@@ -27,7 +27,7 @@ Computational methods, and accelerated molecular dynamics simulations in particu
 ## Setup
 
 ### NAMD configuration
-Based on our analysis of the hydrogen bonding across different acceleration parameters, we decided to use `alpha=200` and `dual=off` in our final runs. We used our lab's crystal structure of synaptotagmin C2A and C2B to generate the mutants of interest with pymol's mutagenesis wizard. Each of the 6 resulting structures was run under different random seeds for 50,000,000 frames with a timestep of 2 femtoseconds (total of 100 ns) on lonestar 5. The pdb structures were solvated and ionized in a cube and minimized for 1000 frames. A single atom in the center of the protein was restrained to prevent drifting. 
+Based on our analysis of the hydrogen bonding across different acceleration parameters, we decided to use `alpha=200` and `dual=off` in our final runs. We used our lab's crystal structure of synaptotagmin C2A and C2B to generate the mutants of interest with pymol's mutagenesis wizard. Each of the 6 resulting structures was run under different random seeds for 50,000,000 frames with a timestep of 2 femtoseconds (total of 100 ns) on lonestar 5. The pdb structures were solvated and ionized in a cube and minimized for 1000 frames. A single atom in the center of the protein was restrained to prevent drifting. We restrained residue 226 in C2A and 359 in C2B.
 
 ## Methods
 ### Webplot and alignment
@@ -82,8 +82,8 @@ The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 source("./plots/volume_density.R")
 source("./plots/volume_line.R")
-#volume_density('data/vol.data')
-#volume_line('data/vol.data')
+volume_density('data/vol.data')
+volume_line('data/vol.data')
 ```
 
 ### Calcium binding atom volume
