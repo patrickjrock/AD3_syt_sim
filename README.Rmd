@@ -49,22 +49,14 @@ pca_path("data/pca.data")
 ### Hydrogen bond analysis
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-source("./plots/hbonds_line.R")
-source("./plots/hbonds_hist.R")
-```
-
-### Loop distance analysis
-In an attempt to measure the stability of loop-3, we computed the distance between the apical c alphas of loop 1 and loop 3. For C2A we selected residues 173 and 276, and for C2B residues 305 and 364. The script that computes the distance analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/python/distance.py)
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-source("./plots/distance_density.R")
-source("./plots/distance_line.R")
-distance_density('data/dist.data')
-distance_line("data/dist.data")
+#source("./plots/hbonds_line.R")
+#source("./plots/hbonds_hist.R")
 ```
 
 ### Mutant pair distance analysis
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+source("plots/distance_density.R")
+source("plots/distance_line.R")
 distance_density('data/mutadist.data')
 distance_line("data/mutadist.data")
 ```
@@ -76,19 +68,10 @@ distance_density('data/avgdist.data')
 distance_line("data/avgdist.data")
 ```
 
-### Volume polygon analysis
-The volume of the pocket between loops 1 and 3 was defined by 3 c alphas on each loop for a total of 6. The volume of the pocket was defined as the convex hull of these 6 c alphas. The script that computes the volume analysis can be found [here](https://github.com/prockresearch/AD3_syt_sim/blob/master/analysis/python/volume.py)
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-source("./plots/volume_density.R")
-source("./plots/volume_line.R")
-volume_density('data/vol.data')
-volume_line('data/vol.data')
-```
-
 ### Calcium binding atom volume
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+source("./plots/volume_line.R")
 source("./plots/calvol_density.R")
 calvol_density('data/calciumvol.data')
 volume_line('data/calciumvol.data')
@@ -97,6 +80,8 @@ volume_line('data/calciumvol.data')
 ### RMSD 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 source("./plots/rmsd.R")
+rmsd('data/rmsd.data')
+#rmsd('data/rmsd_cal.data')
 ```
 
 ### Chi2

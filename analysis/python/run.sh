@@ -1,4 +1,4 @@
-python hbonds.py > ../../data/hbonds.data
+#python hbonds.py > ../../data/hbonds.data
 python rmsd.py > ../../data/rmsd.data 
 python rmsf.py > ../../data/rmsf.data
 python muta_distance.py > ../../data/mutadist.data 
@@ -6,4 +6,4 @@ python pca.py > ../../data/pca.data
 python chi.py > ../../data/chi.data
 python calcium_volume.py > ../../data/calciumvol.data
 python avg_distance.py > ../../data/avgdist.data
-python rmsd_cal > ../../data/rmsd_cal.data
+python rmsd_cal.py > ../../data/rmsd_cal.data

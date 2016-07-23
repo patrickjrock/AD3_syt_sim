@@ -47,5 +47,5 @@ class Chi(Analysis):
   def write(self, data):
     self.base_write(data, "chi2") 
 
-c = Chi(base.DCD_DIRECTORY, base.PSF_DIRECTORY)
+c = Chi()
 c.prun()
