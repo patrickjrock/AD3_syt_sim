@@ -46,5 +46,6 @@ mv restraint.pdb ../restraint.pdb
 echo "----generating namd file"
 python namd.py $psfname $pdbname $(basename $1) 
 mv namd.in ../namd.in
+mv restart.namd ../restart.namd
 
 echo "----done"

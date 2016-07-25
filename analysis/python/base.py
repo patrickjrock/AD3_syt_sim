@@ -16,7 +16,7 @@ from mpi4py import MPI
 
 C2A_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a'
 C2B_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2b'
-DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/cal'
+DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/cal/bound'
 PSF_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/psf/cal'
 
 def _pickle_method(m):

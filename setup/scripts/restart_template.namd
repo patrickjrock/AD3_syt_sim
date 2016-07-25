@@ -1,0 +1,90 @@
+# input
+set input               restart/{{ out_name }}
+coordinates             ${input}.coor
+velocities              ${input}.vel
+extendedSystem          ${input}.xsc
+structure               {{ psf }}
+parameters              ParameterFiles/par_all27_prot_lipid_na.inp
+parameters              ParameterFiles/par_all36_na.prm
+parameters              ParameterFiles/par_all36_prot.prm
+parameters              ParameterFiles/par_all36_lipid.prm
+parameters              ParameterFiles/toppar_all36_prot_na_combined.str
+paratypecharmm          on
+
+set temperature         310
+
+# output
+set output              out/{{ out_name }}_restart
+outputname              $output
+dcdfile                 ${output}.dcd
+xstFile                 ${output}.xst
+dcdfreq                 25000
+xstFreq                 25000
+
+binaryoutput            no
+binaryrestart           no
+outputEnergies          5000
+restartfreq             25000
+
+# Multiple timestepping
+firsttimestep       50000000
+timestep            2.0  ;# 2fs/step
+rigidBonds          all  ;# needed for 2fs steps
+nonbondedFreq       1
+fullElectFrequency  2
+stepspercycle       10
+
+
+# Force-Field Parameters
+exclude             scaled1-4
+1-4scaling          1.0
+cutoff              12.
+switching           on
+switchdist          10.
+pairlistdist        13.5
+COMmotion           no
+
+# Periodic Boundary Conditions
+cellBasisVector1    62.5    0.    0.
+cellBasisVector2     0.    61.    0.
+cellBasisVector3     0.     0.   73.
+cellOrigin           0.      0.    0.
+
+wrapAll             on
+
+# PME (for full-system periodic electrostatics)
+PME                  yes
+pmeGridSpacing       1.0
+
+# Constant Pressure Control (variable volume)
+useGroupPressure      yes; # needed for rigidBonds
+useFlexibleCell       no
+useConstantArea       no
+
+langevinPiston        on
+langevinPistonTarget  1.01325 # atmospheric pressure
+langevinPistonPeriod  200
+langevinPistonDecay   50
+langevinPistonTemp    $temperature
+
+# Constant Temperature Control
+langevin              on;  # do langevin dynamics
+langevinDamping       5;   # damping coefficient (gamma) of 5/ps
+langevinTemp          $temperature
+langevinHydrogen      off; # don't couple langevin bath to hydrogens
+
+# Harmonic Constraints
+constraints         on
+consref             restraint.pdb
+conskfile           restraint.pdb
+conskcol            B
+constraintScaling   1.0
+
+# Temperature control
+
+accelMD             off
+accelMDdihe         off
+accelMDdual         off
+
+# Start scripting mode
+run                50000000 
