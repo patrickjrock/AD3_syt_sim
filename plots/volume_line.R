@@ -5,6 +5,6 @@ library(cowplot)
 volume_line <- function(data) {
   volume <- read.csv(data, sep="")
   p <- ggplot(volume) + geom_point(aes(x=frame, y=volume, color=mutant), alpha=.05) +
-    facet_grid(run ~ c2)
+    facet_grid(run ~ c2) + guides(colour = guide_legend(override.aes = list(alpha = 1)))
   show(p)
 }

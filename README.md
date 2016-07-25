@@ -1,7 +1,7 @@
 Synaptotagmin simulation
 ================
 Patrick Rock
-22 July, 2016
+25 July, 2016
 
 -   [Summary](#summary)
 -   [Introduction](#introduction)
