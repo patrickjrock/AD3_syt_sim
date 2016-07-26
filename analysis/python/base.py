@@ -51,7 +51,7 @@ class Analysis(object):
     raise NotImplementedError("write not implemented")
 
   def bound(self, u):
-    sele = u.select_atoms('(resid 172 or resid 238) and name OD2')
+    sele = u.select_atoms('(resid 172 or resid 238) and (name OD2 or name OD1)')
     calc = u.select_atoms('name CAL')
    
     dist = MDAnalysis.analysis.distances.distance_array(calc.coordinates(), sele.coordinates())
