@@ -18,6 +18,8 @@ import time
 start_time = time.time()
 
 class Rmsf_ana(Analysis):
+  s = 806
+
   def metric(self, psf, dcd):
     u = MDAnalysis.Universe(psf, dcd)
     bb = u.select_atoms('backbone and name CA')
@@ -25,7 +27,7 @@ class Rmsf_ana(Analysis):
     data = []
     i = 0 
     rmsf_out = MDAnalysis.analysis.rms.RMSF(bb) 
-    rmsf_out.run(start=0, stop=2000)
+    rmsf_out.run(start=self.s, stop=2000)
    
     for i, val in enumerate(rmsf_out._rmsf):
 

@@ -14,14 +14,8 @@ import os
 from base import Analysis
 
 class Align(Analysis):
-  """
-  shows pca space, for each frame write out pc projections 
-  """  
 
   def metric(self, psf, dcd):
-    """
-    https://gist.github.com/kain88-de/0bfe0813e27ad601004b247fedb2ee7d
-    """
     trj = Universe(psf, dcd)
     out_file = self.d + "/align/" + os.path.basename(dcd)
     rms_fit_trj(trj, trj, select="protein and name CA", filename=out_file)

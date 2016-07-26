@@ -4,6 +4,8 @@ Author: Patrick Rock
 Date: July 4th, 2016
 """
 import MDAnalysis
+import MDAnalysis.analysis.distances
+from MDAnalysis import *
 import os
 from os import listdir
 from multiprocessing.pool import Pool
@@ -16,8 +18,9 @@ from mpi4py import MPI
 
 C2A_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a'
 C2B_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2b'
-DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/cal/bound'
+DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/cal/c2a'
 PSF_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/psf/cal'
+PDB_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/pdb_solv'
 
 def _pickle_method(m):
   """ Not sure what this does exactly but its needed for the thread pool
@@ -46,6 +49,16 @@ class Analysis(object):
 
   def write(self, data, filename="out.data"):
     raise NotImplementedError("write not implemented")
+
+  def bound(self, u):
+    sele = u.select_atoms('(resid 172 or resid 238) and name OD2')
+    calc = u.select_atoms('name CAL')
+   
+    dist = MDAnalysis.analysis.distances.distance_array(calc.coordinates(), sele.coordinates())
+    for row in dist:
+      if row[0] < 2.5 and row[1] < 2.5:
+        return True
+    return False
 
   def base_write(self, data, metric_name):
     print('frame ' + metric_name + ' c2 mutant run')
