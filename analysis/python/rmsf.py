@@ -9,6 +9,7 @@ from MDAnalysis.analysis.align import *
 from MDAnalysis.analysis.rms import rmsd
 from MDAnalysis.tests.datafiles import PSF, DCD, PDB_small
 
+from prody import *
 
 import sys
 from scipy.spatial import ConvexHull
@@ -18,23 +19,22 @@ import time
 start_time = time.time()
 
 class Rmsf_ana(Analysis):
-  s = 806
 
   def metric(self, psf, dcd):
-    u = MDAnalysis.Universe(psf, dcd)
-    bb = u.select_atoms('backbone and name CA')
-    protein = u.select_atoms('protein')    
+    ensemble = parseDCD(dcd)
+    structure = parsePSF(psf)  
+    sele = structure.select('name CA')
+
+    ensemble.setAtoms(sele)    
+    ensemble.superpose()
+    rmsf = ensemble.getRMSFs()
+
     data = []
-    i = 0 
-    rmsf_out = MDAnalysis.analysis.rms.RMSF(bb) 
-    rmsf_out.run(start=self.s, stop=2000)
-   
-    for i, val in enumerate(rmsf_out._rmsf):
-
+    for i, val in enumerate(rmsf):
+      
       name = os.path.basename(dcd)[:-4].split('_')
-
-      resid = protein.residues[i].resid
-
+      resid = sele.getResnums()[i]
+      
       row = [resid, val, name[0], name[1], name[2]]  # row format is [index, distance, run label]
       data.append(row)
     return data
@@ -46,4 +46,4 @@ class Rmsf_ana(Analysis):
 
 
 r = Rmsf_ana()
-r.prun()
+r.run()

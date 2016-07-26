@@ -20,7 +20,7 @@ C2A_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a'
 C2B_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2b'
 DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/cal/c2a'
 PSF_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/psf/cal'
-PDB_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/pdb_solv'
+PDB_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/pdb/naked'
 
 def _pickle_method(m):
   """ Not sure what this does exactly but its needed for the thread pool
