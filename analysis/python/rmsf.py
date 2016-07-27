@@ -40,7 +40,11 @@ class Rmsf_ana(Analysis):
     return data
 
   def write(self, data, filename="out,data"):
-    self.base_write(data, 'rmsf')
+    print('resid rmsf c2 mutant run')
+    for row in data:
+      print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + row[3] + ' ' + row[4])
+
+
 
 r = Rmsf_ana()
 r.run()

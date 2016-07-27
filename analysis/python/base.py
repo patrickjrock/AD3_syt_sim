@@ -13,12 +13,13 @@ import copy_reg
 import types
 import time
 import sys
+import numpy
 
 from mpi4py import MPI
 
 C2A_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a'
 C2B_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2b'
-DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/cal/c2a'
+DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/cal'
 PSF_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/psf/cal'
 PDB_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/pdb/naked'
 
@@ -50,15 +51,49 @@ class Analysis(object):
   def write(self, data, filename="out.data"):
     raise NotImplementedError("write not implemented")
 
-  def bound(self, u):
-    sele = u.select_atoms('(resid 172 or resid 238) and (name OD2 or name OD1)')
+  def sbound(self, u, s):
+    """ returns true if any atoms in selection are bound to a calcium """
+    sele = u.select_atoms(s)
     calc = u.select_atoms('name CAL')
    
     dist = MDAnalysis.analysis.distances.distance_array(calc.coordinates(), sele.coordinates())
-    for row in dist:
-      if row[0] < 2.5 and row[1] < 2.5:
-        return True
-    return False
+    for i, row in enumerate(dist):
+      
+      if any([d<2.5 for d in row]):
+	return (True, i)
+    return (False, -1)
+
+  def bound(self, u, psf):
+   
+    fname = os.path.basename(psf)
+  
+    atoms1 = []
+    atoms2 = []
+    if fname[:3] == "c2a":
+      atoms1.append('resid 172 and (name OD1 or name OD2)')      
+      atoms1.append('resid 238 and (name OD1 or name OD2)')      
+  #    atoms1.append('resid 232 and (name OD1 or name OD2)')      
+      atoms2.append('resid 178 and (name OD1 or name OD2)')      
+
+    if fname[:3] == "c2b":
+      atoms1.append('resid 303 and (name OD1 or name OD2)')
+      atoms1.append('resid 371 and (name OD1 or name OD2)')
+      atoms1.append('resid 365 and (name OD1 or name OD2)')
+      atoms2.append('resid 309 and (name OD1 or name OD2)')
+
+    boundv = zip(*[self.sbound(u,sele) for sele in atoms1])
+    bound1 = all(boundv[0]) and len(set(boundv[1])) == 1
+    bound2 = self.sbound(u,atoms2[0])[0]
+    return bound1 
+
+  def get_bound_vector(self, psf, dcd):
+    u = Universe(psf, dcd)
+    v = [self.bound(u, psf) for ts in u.trajectory]
+    smooth = [0,0,0,0,0] 
+    for i in range(5,len(v)-5):
+      smooth.append(numpy.round( numpy.mean(v[(i-5):(i+5)]) ))
+    smooth.extend([0,0,0,0,0]) 
+    return smooth 
 
   def base_write(self, data, metric_name):
     print('frame ' + metric_name + ' c2 mutant run')

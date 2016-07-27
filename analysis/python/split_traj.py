@@ -9,34 +9,40 @@ import os
 from base import Analysis
 from prody import *
 from MDAnalysis import *
+import numpy
 
 class SplitRMSF(Analysis):
   """ split a trajectory by bound/unbound state and compute RMSF of each 
       MSD = (1/t)*sum( (x(t)-mean(x))**2 )
   """
-  def get_bound_vector(self, psf, dcd):
-    u = Universe(psf, dcd)
-    return [self.bound(u) for ts in u.trajectory]
-
   def metric(self, psf, dcd):
     traj = Trajectory(dcd)
     structure = parsePSF(psf)  
     traj.link(structure)    
 
+    # vector of bound bools
     boundv = self.get_bound_vector(psf, dcd)
+
 
     bound_coors = Ensemble()
     unbound_coors = Ensemble()
     for i, frame in enumerate(traj):
+      # split trajectory into bound and unbound containers
       self.log(i)
       frame.superpose()
       if boundv[i]:
         bound_coors.addCoordset(structure.select('name CA').getCoords())
       else:     
-        unbound_coors.addCoordset(structure.select('name CA').getCoords())
+	unbound_coors.addCoordset(structure.select('name CA').getCoords())
 
-    rmsf_bound = bound_coors.getMSFs()
-    rmsf_unbound = unbound_coors.getMSFs()
+
+    if any(boundv):
+      rmsf_bound = bound_coors.getRMSFs()
+    else:
+      rescard = len(structure.select('name CA').getResnums())
+      rmsf_bound = [-1 for i in range(0,rescard)]
+
+    rmsf_unbound = unbound_coors.getRMSFs()
 
     data = []
     for i in range(0,len(rmsf_bound)):
@@ -54,4 +60,4 @@ class SplitRMSF(Analysis):
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + str(row[2]) + ' ' + row[3] + ' ' + row[4] + ' ' + row[5])
 
 b = SplitRMSF()
-b.prun()
+b.run()
