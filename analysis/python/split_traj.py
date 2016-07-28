@@ -60,4 +60,4 @@ class SplitRMSF(Analysis):
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + str(row[2]) + ' ' + row[3] + ' ' + row[4] + ' ' + row[5])
 
 b = SplitRMSF()
-b.run()
+b.prun()
