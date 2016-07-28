@@ -15,16 +15,15 @@ def write_cols(wt_run, mut_run):
     rmsf_unbound_mutant = mut_line[2]
     c2 = wt_line[3]
 
-    s1 = [resid, rmsf_bound_wt, 'bound', 'wt',  c2]
-    s2 = [resid, rmsf_unbound_wt, 'unbound', 'wt',  c2]
-    s3 = [resid, rmsf_bound_mutant, 'bound', 'mutant',  c2]
-    s4 = [resid, rmsf_unbound_mutant, 'unbound', 'mutant',  c2]
+    s1 = [resid, rmsf_bound_wt, 'bound_wt',  c2]
+    s2 = [resid, rmsf_unbound_wt, 'unbound_wt',  c2]
+    s3 = [resid, rmsf_bound_mutant, 'bound_mutant',  c2]
+    s4 = [resid, rmsf_unbound_mutant, 'unbound_mutant',  c2]
 
     print ' '.join(s1)
     print ' '.join(s2)
     print ' '.join(s3)
-    print ' '.join(s4)
- 
+    print ' '.join(s4) 
 
 f = open("../data/split_rmsf.data", 'r')
 head = f.readline()
@@ -45,7 +44,7 @@ for l in f:
     mut_v[run-1].append(line)
 f.close()
 
-print "resid rmsf bound mutant c2"
+print "resid rmsf bound_mutant c2"
 for i in range(0,3):
   wt_run = wt_v[i]
   for j in range(0,3):
