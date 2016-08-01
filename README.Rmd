@@ -36,87 +36,20 @@ The alignment of synaptotagmin-1 through synaptotagmin-17 was computed with maff
 ![](README_files/C2A_cut.png)
 ![](README_files/C2B_cut.png)
 
-### Principle component analysis
-This plot shows the motion of principle component 1 on the aligned structures of C2A wild type and C2A Y180N.
-![](images/wt_vs_Y180N.gif)
 
-
+### RMSF
+#### Bound
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-source("./plots/pca_path.R")
-pca_path("data/pca.data")
+source("./plots/rmsf.R")
+show(grid1)
 ```
 
-### Hydrogen bond analysis
-
+#### Unbound
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-#source("./plots/hbonds_line.R")
-#source("./plots/hbonds_hist.R")
-```
-
-### Mutant pair distance analysis
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-source("plots/distance_density.R")
-source("plots/distance_line.R")
-distance_density('data/mutadist.data')
-distance_line("data/mutadist.data")
-```
-
-### Average distance analysis
-We measured the average distances between residues in each loop.
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-distance_density('data/avgdist.data')
-distance_line("data/avgdist.data")
-```
-
-### Calcium binding atom volume
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-source("./plots/volume_line.R")
-source("./plots/calvol_density.R")
-calvol_density('data/calciumvol.data')
-volume_line('data/calciumvol.data')
-```
-
-### RMSD 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-source("./plots/rmsd.R")
-rmsd('data/rmsd.data')
-#rmsd('data/rmsd_cal.data')
-```
-
-### Chi2
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-source("./plots/chi_hist.R")
-chi_hist('data/chi.data')
-source("./plots/chi_point.R")
-chi_point('data/chi.data')
-```
-
-
-### RMSF vs RSA
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-#source("./plots/rmsfvsrsa.R")
+show(grid2)
 ```
 
 ## Animation
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-if(FALSE){
-source("./plots/animation/volume_density_animation.R")
-source("./plots/animation/distance_density_animation.R")
-source("./plots/animation/volume_fit_animation.R")
-source("./plots/animation/distance_fit_animation.R")
-volume_density_animation('data/vol.data')
-distance_density_animation('data/dist.data')
-volume_fit_animation('data/vol.data')
-distance_fit_animation('data/dist.data')
-}
-```
-
-Fit                            | Density
------------------------------- | --------------------------------
-![](README_files/vol_fit.gif)  | ![](README_files/vol_density.gif)
-![](README_files/dist_fit.gif) | ![](README_files/dist_density.gif)
-
 
 Animations of the volume analysis can be found [here](plots/animation/README.md)
 

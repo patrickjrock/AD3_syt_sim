@@ -1,7 +1,7 @@
 Synaptotagmin simulation
 ================
 Patrick Rock
-25 July, 2016
+01 August, 2016
 
 -   [Summary](#summary)
 -   [Introduction](#introduction)
@@ -12,14 +12,7 @@ Patrick Rock
     -   [NAMD configuration](#namd-configuration)
 -   [Methods](#methods)
     -   [Webplot and alignment](#webplot-and-alignment)
-    -   [Principle component analysis](#principle-component-analysis)
-    -   [Hydrogen bond analysis](#hydrogen-bond-analysis)
-    -   [Mutant pair distance analysis](#mutant-pair-distance-analysis)
-    -   [Average distance analysis](#average-distance-analysis)
-    -   [Calcium binding atom volume](#calcium-binding-atom-volume)
-    -   [RMSD](#rmsd)
-    -   [Chi2](#chi2)
-    -   [RMSF vs RSA](#rmsf-vs-rsa)
+    -   [RMSF](#rmsf)
 -   [Animation](#animation)
 -   [Links](#links)
 
@@ -57,43 +50,18 @@ The alignment of synaptotagmin-1 through synaptotagmin-17 was computed with maff
 
 ![](README_files/C2A_cut.png) ![](README_files/C2B_cut.png)
 
-### Principle component analysis
+### RMSF
 
-This plot shows the motion of principle component 1 on the aligned structures of C2A wild type and C2A Y180N. ![](images/wt_vs_Y180N.gif)
+#### Bound
 
 ![](README_files/figure-markdown_github/unnamed-chunk-1-1.png)
 
-### Hydrogen bond analysis
+#### Unbound
 
-### Mutant pair distance analysis
-
-![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)![](README_files/figure-markdown_github/unnamed-chunk-3-2.png)
-
-### Average distance analysis
-
-We measured the average distances between residues in each loop. ![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)![](README_files/figure-markdown_github/unnamed-chunk-4-2.png)
-
-### Calcium binding atom volume
-
-![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)![](README_files/figure-markdown_github/unnamed-chunk-5-2.png)
-
-### RMSD
-
-![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)
-
-### Chi2
-
-![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)![](README_files/figure-markdown_github/unnamed-chunk-7-2.png)
-
-### RMSF vs RSA
+![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)
 
 Animation
 ---------
-
-| Fit                            | Density                            |
-|--------------------------------|------------------------------------|
-| ![](README_files/vol_fit.gif)  | ![](README_files/vol_density.gif)  |
-| ![](README_files/dist_fit.gif) | ![](README_files/dist_density.gif) |
 
 Animations of the volume analysis can be found [here](plots/animation/README.md)
 
