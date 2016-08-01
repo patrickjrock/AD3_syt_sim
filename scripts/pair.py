@@ -38,7 +38,7 @@ for l in f:
   mutant = line[4]
   run = int(line[5])
 
-  if mutant == 'wt':
+  if mutant == 'wtcalbound':
     wt_v[run-1].append(line)
   else:
     mut_v[run-1].append(line)
