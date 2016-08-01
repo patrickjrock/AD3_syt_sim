@@ -19,16 +19,15 @@ location <- function(resid, rmsf, bound, mutant, c2) {
 }
 
 rmsf_plot <- function(lp, data, title, xlab, ylab) {
-  print(title)
   x <- subset(data, mutant=="wt" & loop==lp )
   y <- subset(data, mutant!="wt" & loop==lp )
   p <- qplot(x$rmsf, y$rmsf, color=factor(x$resid)) + xlim(0,3) + ylim(0,3) + ggtitle(title) + xlab(xlab) + ylab(ylab) +
-    geom_abline(intercept=0, slope=1) 
+    geom_abline(intercept=0, slope=1) + guides(color=guide_legend(title="Residue ID"))
   return(p)
 }
 
-bound_rmsf <- read.table("../data/rmsf_bound.data", head=T) 
-unbound_rmsf <- read.table("../data/rmsf_unbound.data", head=T)
+bound_rmsf <- read.table("data/rmsf_bound.data", head=T) 
+unbound_rmsf <- read.table("data/rmsf_unbound.data", head=T)
 
 bound_rmsf <- cbind(bound_rmsf, loop = apply(bound_rmsf, 1, location))
 unbound_rmsf <- cbind(unbound_rmsf, loop = apply(unbound_rmsf, 1, location))
@@ -60,5 +59,3 @@ p8 <- rmsf_plot("loop3", c2b_unbound, "C2B loop3 unbound", "Wild Type RMSF", "Y3
 
 grid1 <- plot_grid(p1,p3,p5,p7)
 grid2 <- plot_grid(p2,p4,p6,p8)
-show(grid1)
-show(grid2)
