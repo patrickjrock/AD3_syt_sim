@@ -1,6 +1,7 @@
 # RMSF plots
 require(ggplot2)
 require(cowplot)
+require(plyr)
 
 location <- function(resid, rmsf, bound, mutant, c2) {
   if(resid %in% 170:176) {
@@ -24,6 +25,14 @@ rmsf_plot <- function(lp, data, title, xlab, ylab) {
   p <- qplot(x$rmsf, y$rmsf, color=factor(x$resid)) + xlim(0,3) + ylim(0,3) + ggtitle(title) + xlab(xlab) + ylab(ylab) +
     geom_abline(intercept=0, slope=1) + guides(color=guide_legend(title="Residue ID"))
   return(p)
+}
+
+get_residuals <- function(lp, data, title) {
+  x <- data$rmsf[data$mutant=="wt" & data$loop==lp]
+  y <- data$rmsf[data$mutant!="wt" & data$loop==lp]
+  residuals <- y-x
+  r <- data.frame(residuals = residuals, title = title) 
+  return(r)
 }
 
 bound_rmsf <- read.table("data/rmsf_bound.data", head=T) 
@@ -57,5 +66,30 @@ p6 <- rmsf_plot("loop3", c2a_unbound, "C2A loop3 unbound", "Wild Type RMSF", "Y1
 p7 <- rmsf_plot("loop3", c2b_bound, "C2B loop3 bound", "Wild Type RMSF", "Y311N RMSF")
 p8 <- rmsf_plot("loop3", c2b_unbound, "C2B loop3 unbound", "Wild Type RMSF", "Y311N RMSF")
 
-grid1 <- plot_grid(p1,p3,p5,p7)
-grid2 <- plot_grid(p2,p4,p6,p8)
+grid1 <- plot_grid(p5,p7)
+grid2 <- plot_grid(p6,p8)
+
+
+r1 <- get_residuals("loop1", c2a_bound, "C2A loop1 bound")
+r2 <- get_residuals("loop1", c2a_unbound, "C2A loop1 unbound")
+
+r3 <- get_residuals("loop1", c2b_bound, "C2B loop1 bound")
+r4 <- get_residuals("loop1", c2b_unbound, "C2B loop1 unbound")
+
+r5 <- get_residuals("loop3", c2a_bound, "C2A loop3 bound")
+r6 <- get_residuals("loop3", c2a_unbound, "C2A loop3 unbound")
+
+r7 <- get_residuals("loop3", c2b_bound, "C2B loop3 bound")
+r8 <- get_residuals("loop3", c2b_unbound, "C2B loop3 unbound")
+
+
+rl <- list(r7,r8)
+r <- join_all(rl, type="full")
+hist1 <- ggplot(r) + geom_density(aes(x=residuals, color=title)) + xlim(-1,1) + ylim(0,6)
+
+rl <- list(r5,r6)
+r <- join_all(rl, type="full")
+hist2 <- ggplot(r) + geom_density(aes(x=residuals, color=title)) + xlim(-1,1) + ylim(0,6)
+
+
+ 

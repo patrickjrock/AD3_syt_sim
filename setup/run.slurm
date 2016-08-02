@@ -11,7 +11,7 @@
 #SBATCH -p normal	        		# Queue name
 #SBATCH -N 8            			# Total number of nodes requested
 #SBATCH -n 196 	 	        		# Total number of mpi tasks requested (24cores/node)
-#SBATCH -t 48:00:00       			# Run time (hh:mm:ss) - 1.5 hours
+#SBATCH -t 30:00:00       			# Run time (hh:mm:ss) - 1.5 hours
 #SBATCH --mail-user=patrick.rock@ttuhsc.edu     # Address email notifications
 #SBATCH --mail-type=all                         # Email at begin and end of job
 #SBATCH -A AD3-mutations-of-Syn   	  	# <-- Allocation name to charge job against

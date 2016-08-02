@@ -49,6 +49,13 @@ show(grid1)
 show(grid2)
 ```
 
+#### Residual Histogram
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+show(hist1)
+show(hist2)
+```
+
+
 ## Animation
 
 Animations of the volume analysis can be found [here](plots/animation/README.md)

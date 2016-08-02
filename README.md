@@ -1,7 +1,7 @@
 Synaptotagmin simulation
 ================
 Patrick Rock
-01 August, 2016
+02 August, 2016
 
 -   [Summary](#summary)
 -   [Introduction](#introduction)
@@ -59,6 +59,10 @@ The alignment of synaptotagmin-1 through synaptotagmin-17 was computed with maff
 #### Unbound
 
 ![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)
+
+#### Residual Histogram
+
+![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)![](README_files/figure-markdown_github/unnamed-chunk-3-2.png)
 
 Animation
 ---------
