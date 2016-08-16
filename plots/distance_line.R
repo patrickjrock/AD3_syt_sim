@@ -3,8 +3,8 @@ library(cowplot)
 
 distance_line <- function(data) {
   distance <- read.csv(data, sep="")
-  p <- ggplot(distance) + geom_point(aes(x=frame, y=distance, color=mutant), alpha=.05) +
-    facet_grid(run ~ c2) + guides(colour = guide_legend(override.aes = list(alpha = 1)))
+  p <- ggplot(distance) + geom_line(aes(x=frame, y=distance, color=c2)) +
+    facet_grid(mutant ~ .) + guides(colour = guide_legend(override.aes = list(alpha = 1)))
   
   show(p)
 }

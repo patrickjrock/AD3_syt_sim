@@ -1,0 +1,35 @@
+require(bio3d)
+require(parallel)
+
+count_connections <- function(row) {
+  c <- row[row < (-0.3)]
+  return(length(sum(abs(row))))
+}
+
+
+
+count_corr <- function(dcd, pdb, name){
+  dcd <- read.dcd(dcd)
+  pdb <- read.pdb(pdb)
+
+  print("fitting xyz")
+  ca.inds <- atom.select(pdb, elety=c("CA"))
+  xyz <- fit.xyz(fixed=pdb$xyz, mobile=dcd,
+		 fixed.inds=ca.inds$xyz,
+		 mobile.inds=ca.inds$xyz, ncore=16)
+
+  print("xyz fit")
+
+  cij<-dccm(xyz[,ca.inds$xyz], ncore=16)
+  counts <- apply(cij, 2, count_connections)
+  label <- rep(name, times=length(counts))  
+  resid <- seq(from=272, to=418)
+  df = data.frame(resid, counts, label)
+  return(df)
+}
+
+wt <- count_corr("data/dcds/final/cat/c2b_wtcalunbound_1.dcd", "structures/pdb/c2b_wtcalunbound.pdb", "wt unbound")
+y311n <- count_corr("data/dcds/final/cat/c2b_Y311Ncalunbound_1.dcd", "structures/pdb/c2b_Y311Ncalunbound.pdb", "Y311N unbound")
+df <- rbind(wt, y311n)
+p <- ggplot(subset(df, resid > 299 & resid < 207 ))+ geom_point(aes(x=resid, y=counts, color=label, size=counts))
+show(p)

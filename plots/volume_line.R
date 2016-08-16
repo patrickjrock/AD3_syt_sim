@@ -4,7 +4,7 @@ library(cowplot)
 
 volume_line <- function(data) {
   volume <- read.csv(data, sep="")
-  p <- ggplot(volume) + geom_point(aes(x=frame, y=volume, color=mutant), alpha=.05) +
-    facet_grid(run ~ c2) + guides(colour = guide_legend(override.aes = list(alpha = 1)))
+  p <- ggplot(volume) + geom_line(aes(x=frame, y=volume, color=mutant)) + ylab("Cubic Angstroms") + xlab("Frame") +
+    facet_grid(. ~ c2) + guides(colour = guide_legend(override.aes = list(alpha = 1))) + ggtitle("Volume of Calcium Binding Atoms") 
   show(p)
 }

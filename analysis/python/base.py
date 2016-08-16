@@ -19,9 +19,9 @@ from mpi4py import MPI
 
 C2A_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a'
 C2B_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2b'
-DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/control'
+DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/final'
 PSF_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/psf'
-PDB_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/pdb/naked'
+PDB_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/pdb'
 
 def _pickle_method(m):
   """ Not sure what this does exactly but its needed for the thread pool
@@ -118,6 +118,11 @@ class Analysis(object):
     cut = dcdname.split('_')
     name = cut[0] + '_' + cut[1]    
     return self.p + "/" + name + ".psf"
+
+  def dcdtopdb(self, dcdname):
+    cut = dcdname.split('_')
+    name = cut[0] + '_' + cut[1]    
+    return PDB_DIRECTORY + "/" + name + ".pdb"
 
   def run(self):
     dcds = self.getdcds()

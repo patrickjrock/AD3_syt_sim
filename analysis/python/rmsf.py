@@ -40,9 +40,19 @@ class Rmsf_ana(Analysis):
     return data
 
   def write(self, data, filename="out,data"):
-    print('resid rmsf c2 mutant run')
+    print('resid rmsf c2 mutant bound run')
     for row in data:
-      print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + row[3] + ' ' + row[4])
+      b = ""
+      m = ""
+      if "unbound" in row[3]:
+        b = "unbound" 
+      else:
+        b = "bound"
+      if "wt" in row[3]:
+        m = "wt"
+      else:
+        m = "mutant"
+      print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + m + ' ' + b + ' ' + row[4])
 
 
 

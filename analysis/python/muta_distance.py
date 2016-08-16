@@ -16,12 +16,12 @@ class Muta_distance(Distance):
     s1 = ""
     s2 = ""
     if fname[:3] == "c2a":
-      s1 = "resid 237 and name CB"
-      s2 = "resid 180 and name CB"
+      s1 = "resid 237 and name CA"
+      s2 = "resid 180 and name CA"
 
     if fname[:3] == "c2b":
-      s1 = "resid 370 and name CB" 
-      s2 = "resid 311 and name CB"
+      s1 = "resid 370 and name CA" 
+      s2 = "resid 311 and name CA"
     return (s1, s2)
 
 m = Muta_distance()

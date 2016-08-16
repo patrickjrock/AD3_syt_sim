@@ -6,7 +6,7 @@ library(cowplot)
 
 rmsd <- function(data) {
   rmsd <- read.csv(data, sep="")
-  p <- ggplot(rmsd, aes(x=frame, y=rmsd, color=mutant)) + geom_line(alpha=.5) + theme_classic() + facet_grid(run ~ c2) +
+  p <- ggplot(rmsd, aes(x=frame, y=rmsd, color=c2)) + geom_line(alpha=.5) + theme_classic() + facet_grid(mutant ~.) +
     ggtitle("RMSD")
   show(p)
 }
