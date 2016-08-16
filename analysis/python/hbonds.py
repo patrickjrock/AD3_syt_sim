@@ -28,7 +28,7 @@ class Hbonds(Analysis):
     u = MDAnalysis.Universe(psf, dcd)
     data = []
     s = self.get_selection(psf)
-    h = MDAnalysis.analysis.hbonds.HydrogenBondAnalysis(u, selection1=s,selection1_type="both", distance=3.0)
+    h = MDAnalysis.analysis.hbonds.HydrogenBondAnalysis(u, selection1=s,selection2=s,selection1_type="donor", distance=3.0)
     h.run()
 
     i = 0
