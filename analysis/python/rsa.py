@@ -3,6 +3,7 @@ Author: Patrick Rock
 Date: July 15th, 2016
 TTUHSC
 Credit for residue_max_acc data, Amir Shahmoradi
+https://github.com/wilkelab/influenza_HA_evolution/blob/master/structure/calculate_rsa.py
 
 Usage: python rsa.py structure.pdb
 """
