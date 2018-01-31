@@ -26,20 +26,23 @@ class CalciumVolume(Volume):
       s = s + ' or (resid 172 and (name OD2 or name OD1))'
       s = s + ' or (resid 178 and name OD2)'
       s = s + ' or (resid 230 and (name OD1 or name OD2))'
-      s = s + ' or (resid 232 and (name OD1 or name OD2))'
-      s = s + ' or (resid 238 and (name OD1 or name OD2))'
-      s = s + ' or (resid 236 and name O)'
-      s = s + ' or (resid 235 and name OG)'
       s = s + ' or (resid 231 and name O)'
+      s = s + ' or (resid 232 and (name OD1 or name OD2))'
+      s = s + ' or (resid 235 and name OG)'
+      s = s + ' or (resid 236 and name O)'
+      s = s + ' or (resid 238 and (name OD1 or name OD2))'
     if fname[:3] == "c2b":
       s = '(resid 302 and name O)'
       s = s + 'or (resid 303 and (name OD2 or name OD1))'
       s = s + 'or (resid 309 and name OD1)'
+      s = s + 'or (resid 363 and (name OD2 or name OD1))'
       s = s + 'or (resid 364 and name O)'
       s = s + 'or (resid 365 and (name OD2 or name OD1))'
-      s = s + 'or (resid 363 and (name OD2 or name OD1))'
+      s = s + 'or (resid 371 and (name OD2 or name OD1))'
+      # added these to c2b for comparison to c2a
+
     return s
 
 v = CalciumVolume()
-v.prun()
-#v.compute_hull("../../structures/psf/c2b_wt.psf", "../../data/dcds/control/c2b_wt_1.dcd")
+#v.run()
+v.compute_hull("../../structures/psf/c2a_wtcalbound.psf", "../../data/dcds/final/c2a_wtcalbound_1.dcd")

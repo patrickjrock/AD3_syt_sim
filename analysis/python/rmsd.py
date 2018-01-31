@@ -24,7 +24,7 @@ class Rmsd_ana(Analysis):
     data = []
     i = 0 
     rmsd_out = MDAnalysis.analysis.rms.RMSD(u) 
-    rmsd_out.run(start=0, stop=2000)
+    rmsd_out.run()
     
     for n  in rmsd_out.rmsd:
       i = i+1 
@@ -39,4 +39,4 @@ class Rmsd_ana(Analysis):
       print(str(row[0]) + ' ' + str(row[1]) + ' ' + row[2] + ' ' + row[3] + ' ' + row[4])
 
 r = Rmsd_ana()
-r.prun()
+r.run()

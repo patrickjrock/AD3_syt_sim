@@ -1,0 +1,234 @@
+draw color 0
+draw sphere {36.346 9.85 -19.811} radius 0.2 resolution 25
+draw color 1
+draw sphere {36.083 6.1115 -17.342} radius 0.4 resolution 25
+draw color 2
+draw sphere {38.9515555555556 1.60533333333333 -10.9437777777778} radius 1.8 resolution 25
+draw color 3
+draw sphere {32.558 -5.247 -19.265} radius 0.2 resolution 25
+draw color 4
+draw sphere {24.8148064516129 0.829064516129032 -12.8915161290323} radius 6.2 resolution 25
+draw color 5
+draw sphere {22.099 -14.144 -18.033} radius 0.2 resolution 25
+draw color 6
+draw sphere {20.06 -12.471 -21.611} radius 1.2 resolution 25
+draw color 7
+draw sphere {28.3020256410256 -4.98069230769231 -12.0266923076923} radius 7.8 resolution 25
+draw color 8
+draw sphere {11.829 -20.817 -14.83} radius 0.2 resolution 25
+draw color 9
+draw sphere {23.389 -13.733 -13.087} radius 0.2 resolution 25
+draw color 10
+draw sphere {47.672 6.0175 -9.078} radius 0.4 resolution 25
+draw color 11
+draw sphere {39.207 -0.395 -7.988} radius 0.2 resolution 25
+draw color 12
+draw sphere {29.454 -2.846 -6.612} radius 0.2 resolution 25
+draw color 13
+draw sphere {16.948 -1.923 -7.498} radius 0.2 resolution 25
+draw color 14
+draw sphere {11.361 2.042 -7.898} radius 0.2 resolution 25
+draw color 15
+draw sphere {18.092 -0.763 -3.241} radius 0.2 resolution 25
+draw color 16
+draw sphere {23.889 -5.336 -2.925} radius 0.2 resolution 25
+draw color 17
+draw sphere {30.605 -6.378 -4.502} radius 0.2 resolution 25
+draw color 18
+draw sphere {37.215 -8.072 -4.506} radius 0.2 resolution 25
+draw color 19
+draw sphere {43.935 -3.906 -6.739} radius 0.4 resolution 25
+draw color 20
+draw sphere {46.3925 -0.3955 -9.9345} radius 0.4 resolution 25
+draw color 21
+draw sphere {35.822 -12.534 -13.49} radius 0.2 resolution 25
+draw color 22
+draw sphere {28.4355 -13.4205 -9.7215} radius 0.4 resolution 25
+draw color 23
+draw sphere {23.321 -14.108 -8.819} radius 0.2 resolution 25
+draw color 24
+draw sphere {14.113 -12.269 -9.645} radius 0.2 resolution 25
+draw color 25
+draw sphere {9.821 -13.952 -14.266} radius 0.2 resolution 25
+draw color 26
+draw sphere {9.248 -9.192 -11.964} radius 0.2 resolution 25
+draw color 27
+draw sphere {11.035 -6.482 -16.511} radius 0.2 resolution 25
+draw color 28
+draw sphere {10.619 -4.115 -13.541} radius 0.2 resolution 25
+draw color 29
+draw sphere {17.391 -2.32 -12.474} radius 0.2 resolution 25
+draw color 30
+draw sphere {23.315 -0.921 -11.192} radius 0.2 resolution 25
+draw color 31
+draw sphere {33.215 1.144 -10.097} radius 0.2 resolution 25
+draw color 32
+draw sphere {40.595 3.813 0.36} radius 0.2 resolution 25
+draw color NA
+draw sphere {37.323 5.95016666666667 1.60833333333333} radius 1.2 resolution 25
+draw color NA
+draw sphere {32.9825 6.271 -11.4745} radius 0.4 resolution 25
+draw color NA
+draw sphere {22.493 0.626 -15.062} radius 0.2 resolution 25
+draw color NA
+draw sphere {17.1046666666667 -1.91866666666667 -16.86} radius 0.6 resolution 25
+draw color NA
+draw sphere {17.636 1.953 -19.132} radius 0.2 resolution 25
+draw color NA
+draw sphere {22.9835 -0.099 -23.4005} radius 0.4 resolution 25
+draw color NA
+draw sphere {20.196 -3.157 -25.752} radius 0.2 resolution 25
+draw color NA
+draw sphere {19.168 -6.003 -21.182} radius 0.2 resolution 25
+draw color NA
+draw sphere {16.844 -6.645 -24.123} radius 0.2 resolution 25
+draw color NA
+draw sphere {19.332 -10.96 -22.176} radius 0.2 resolution 25
+draw color NA
+draw sphere {15.17 -12.281 -25.616} radius 0.2 resolution 25
+draw color NA
+draw sphere {17.614 -15.143 -25.059} radius 0.2 resolution 25
+draw color NA
+draw sphere {16.781 -17.183 -21.931} radius 0.2 resolution 25
+draw color NA
+draw sphere {22.283 -17.319 -22.783} radius 0.2 resolution 25
+draw color NA
+draw sphere {25.631 -12.094 -22.986} radius 0.2 resolution 25
+draw color NA
+draw sphere {28.996 -6.326 -23.356} radius 0.2 resolution 25
+draw color NA
+draw sphere {31.116 -3.245 -22.71} radius 0.2 resolution 25
+draw color NA
+draw sphere {27.099 9.146 -10.447} radius 0.2 resolution 25
+draw color NA
+draw sphere {17.406 5.866 -10.504} radius 0.2 resolution 25
+draw color silver
+draw cylinder {36.346 9.85 -19.811} {38.9515555555556 1.60533333333333 -10.9437777777778} radius 0.7405807723993 resolution 25
+draw color silver
+draw cylinder {36.346 9.85 -19.811} {24.8148064516129 0.829064516129032 -12.8915161290323} radius 0.351685930876957 resolution 25
+draw color silver
+draw cylinder {36.346 9.85 -19.811} {37.215 -8.072 -4.506} radius 0.365432868978286 resolution 25
+draw color silver
+draw cylinder {36.083 6.1115 -17.342} {38.9515555555556 1.60533333333333 -10.9437777777778} radius 0.543323529990504 resolution 25
+draw color silver
+draw cylinder {38.9515555555556 1.60533333333333 -10.9437777777778} {32.558 -5.247 -19.265} radius 0.549777753740977 resolution 25
+draw color silver
+draw cylinder {38.9515555555556 1.60533333333333 -10.9437777777778} {24.8148064516129 0.829064516129032 -12.8915161290323} radius 0.634390223339477 resolution 25
+draw color silver
+draw cylinder {38.9515555555556 1.60533333333333 -10.9437777777778} {20.06 -12.471 -21.611} radius 0.522994521306878 resolution 25
+draw color silver
+draw cylinder {38.9515555555556 1.60533333333333 -10.9437777777778} {28.3020256410256 -4.98069230769231 -12.0266923076923} radius 0.866487670993683 resolution 25
+draw color silver
+draw cylinder {38.9515555555556 1.60533333333333 -10.9437777777778} {47.672 6.0175 -9.078} radius 0.44879090348029 resolution 25
+draw color silver
+draw cylinder {38.9515555555556 1.60533333333333 -10.9437777777778} {37.215 -8.072 -4.506} radius 0.707955564355668 resolution 25
+draw color silver
+draw cylinder {38.9515555555556 1.60533333333333 -10.9437777777778} {43.935 -3.906 -6.739} radius 0.356031240651457 resolution 25
+draw color silver
+draw cylinder {32.558 -5.247 -19.265} {28.3020256410256 -4.98069230769231 -12.0266923076923} radius 0.375491033507585 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {22.099 -14.144 -18.033} radius 0.356709014486923 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {20.06 -12.471 -21.611} radius 0.792157398325631 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {28.3020256410256 -4.98069230769231 -12.0266923076923} radius 0.837589358401743 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {11.361 2.042 -7.898} radius 0.383201480778047 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {18.092 -0.763 -3.241} radius 0.477171352546211 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {30.605 -6.378 -4.502} radius 0.483542601263425 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {37.215 -8.072 -4.506} radius 0.558359974785547 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {28.4355 -13.4205 -9.7215} radius 0.392428306418317 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {9.821 -13.952 -14.266} radius 0.475885489290826 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {17.391 -2.32 -12.474} radius 0.60129265623427 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {23.315 -0.921 -11.192} radius 0.386152037700611 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {37.323 5.95016666666667 1.60833333333333} radius 0.632015330757669 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {32.9825 6.271 -11.4745} radius 0.525611702977565 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {22.493 0.626 -15.062} radius 0.630358089730515 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {17.1046666666667 -1.91866666666667 -16.86} radius 0.552893013013902 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {17.636 1.953 -19.132} radius 0.589302407038596 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {22.9835 -0.099 -23.4005} radius 0.39725095377665 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {20.196 -3.157 -25.752} radius 0.519391924600885 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {15.17 -12.281 -25.616} radius 0.480044150817469 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {28.996 -6.326 -23.356} radius 0.412173213267011 resolution 25
+draw color silver
+draw cylinder {24.8148064516129 0.829064516129032 -12.8915161290323} {31.116 -3.245 -22.71} radius 0.506171225625385 resolution 25
+draw color silver
+draw cylinder {22.099 -14.144 -18.033} {20.06 -12.471 -21.611} radius 0.44028827419947 resolution 25
+draw color silver
+draw cylinder {22.099 -14.144 -18.033} {28.3020256410256 -4.98069230769231 -12.0266923076923} radius 0.390926344708427 resolution 25
+draw color silver
+draw cylinder {20.06 -12.471 -21.611} {28.3020256410256 -4.98069230769231 -12.0266923076923} radius 0.805857016398331 resolution 25
+draw color silver
+draw cylinder {20.06 -12.471 -21.611} {11.829 -20.817 -14.83} radius 0.358559698800387 resolution 25
+draw color silver
+draw cylinder {20.06 -12.471 -21.611} {18.092 -0.763 -3.241} radius 0.37411268272058 resolution 25
+draw color silver
+draw cylinder {20.06 -12.471 -21.611} {37.215 -8.072 -4.506} radius 0.38289613269186 resolution 25
+draw color silver
+draw cylinder {20.06 -12.471 -21.611} {28.4355 -13.4205 -9.7215} radius 0.433183192976795 resolution 25
+draw color silver
+draw cylinder {20.06 -12.471 -21.611} {9.821 -13.952 -14.266} radius 0.39595957732667 resolution 25
+draw color silver
+draw cylinder {20.06 -12.471 -21.611} {20.196 -3.157 -25.752} radius 0.406243819604519 resolution 25
+draw color silver
+draw cylinder {20.06 -12.471 -21.611} {19.332 -10.96 -22.176} radius 0.430890030601516 resolution 25
+draw color silver
+draw cylinder {20.06 -12.471 -21.611} {15.17 -12.281 -25.616} radius 0.621322919254491 resolution 25
+draw color silver
+draw cylinder {20.06 -12.471 -21.611} {25.631 -12.094 -22.986} radius 0.455823866155606 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {11.829 -20.817 -14.83} radius 0.507529375735626 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {23.389 -13.733 -13.087} radius 0.46227431957743 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {47.672 6.0175 -9.078} radius 0.449764165606416 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {39.207 -0.395 -7.988} radius 0.373603201275307 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {29.454 -2.846 -6.612} radius 0.450101664702384 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {16.948 -1.923 -7.498} radius 0.750573493659351 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {11.361 2.042 -7.898} radius 0.370903070239335 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {18.092 -0.763 -3.241} radius 0.431768222557097 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {37.215 -8.072 -4.506} radius 0.372240225094557 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {46.3925 -0.3955 -9.9345} radius 0.564781379254987 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {35.822 -12.534 -13.49} radius 0.679417424858341 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {28.4355 -13.4205 -9.7215} radius 0.577988970165307 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {23.321 -14.108 -8.819} radius 0.370649249578015 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {14.113 -12.269 -9.645} radius 0.424918814744415 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {9.821 -13.952 -14.266} radius 0.63503590806099 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {37.323 5.95016666666667 1.60833333333333} radius 0.354823425780219 resolution 25
+draw color silver
+draw cylinder {28.3020256410256 -4.98069230769231 -12.0266923076923} {20.196 -3.157 -25.752} radius 0.350895111358479 resolution 25
+draw color silver
+draw cylinder {46.3925 -0.3955 -9.9345} {35.822 -12.534 -13.49} radius 0.43978441296014 resolution 25
+draw color silver
+draw cylinder {9.821 -13.952 -14.266} {20.196 -3.157 -25.752} radius 0.43567822030944 resolution 25
+draw color silver
+draw cylinder {15.17 -12.281 -25.616} {17.614 -15.143 -25.059} radius 0.500956355805146 resolution 25

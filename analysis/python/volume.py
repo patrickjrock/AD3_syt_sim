@@ -61,5 +61,3 @@ class Volume(Analysis):
 
   def write(self, data, filename="out.data"):
     self.base_write(data, "volume")
-
-#v.compute_hull("../../structures/psf/c2a_wt.psf", "../tcl/out.dcd")

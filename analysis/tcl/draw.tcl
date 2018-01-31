@@ -1,9 +1,11 @@
-mol new "/home/prock/Desktop/AD3_syt_sim/structures/psf/c2b_wt.psf"
+puts "draw.tcl"
+
+mol new "/media/prock/data/AD3_syt_sim/structures/psf/c2b_wtcalbound.psf"
 #mol addfile "/home/prock/Desktop/AD3_syt_sim/staging/cpy/dcds/c2a_wt_1.dcd"
 mol addfile "out.dcd"
 
 proc readdata {} {
-  set fp [open "/home/prock/Desktop/AD3_syt_sim/data/hull_c2b.data" r]
+  set fp [open "/media/prock/data/AD3_syt_sim/data/calcium_hull.data" r]
   set data [read $fp]
   close $fp
   set data [split $data ";"]
@@ -19,9 +21,6 @@ proc drawframe {f} {
       set p2 [lindex $points 1]
       set p3 [lindex $points 2]
    
-      puts "points"    
-      puts $points
-
       draw triangle $p1 $p2 $p3
     } 
   }
@@ -44,15 +43,15 @@ set data [readdata]
 proc drawcounter { name element op } {
     global data
     set framenum [molinfo top get frame]   
-    puts $framenum
     set framedata [lindex $data $framenum]
     set framedata [split $framedata "\n"]
 
-    puts $framedata    
     drawframe $framedata
 }
 
 graphics 0 materials on
-graphics 0 material Transparent
+graphics 0 material Opaque
 
 enabletrace
+
+puts "done"

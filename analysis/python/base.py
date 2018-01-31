@@ -15,12 +15,12 @@ import time
 import sys
 import numpy
 
-from mpi4py import MPI
+#from mpi4py import MPI
 
 C2A_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2a'
 C2B_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/c2b'
-DCD_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/data/dcds/final'
-PSF_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/psf'
+DCD_DIRECTORY = '../../dcds'
+PSF_DIRECTORY = '../../structures/psf'
 PDB_DIRECTORY = '/home/prock/Desktop/AD3_syt_sim/structures/pdb'
 
 def _pickle_method(m):
